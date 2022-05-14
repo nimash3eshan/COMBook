@@ -1,0 +1,73 @@
+/* company name */
+.companyname {
+    padding: 15px;
+    border-radius: 20px;
+    background-color:  var(--blue);
+    align-items: center;
+    display: inline-block;
+    color: aliceblue;
+    margin-top: 12px;
+
+}
+
+
+
+/*PnL tablw section-white box*/
+.tbarea{
+    border-radius: 20px;
+	background: var(--light);
+	padding: 24px;
+	overflow-x: auto;
+    margin-top: 20px;
+}
+
+/*table structure*/
+.tbtable{
+    
+    background-color:  #e6f3ff;
+    border-collapse: collapse; 
+    margin-top: 5px;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+}
+th{
+    background-color: #cce6ff ;
+    padding: 20px 20px 20px 20px;
+    
+}
+
+
+
+td{
+    width: 200px;
+    padding-top: 15px;
+    text-align: center;
+ 
+}
+
+tr :hover{
+    background:   #b3e0ff;
+}
+
+caption{
+    font-size: 26px;
+}
+
+.align_right{
+    text-align: right;
+    padding-right: 8px;
+}
+
+/*Bold*/
+.bold{
+    font-weight: bold;
+}
+
+/*lastrows-decorations*/
+.lastrow {
+    background-color: #cce6ff ;
+    border-radius: 20px;
+    
+}
+

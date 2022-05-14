@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/nimash3eshan/COMBank/issues"
   },
-  "homepage": "https://github.com/nimash3eshan/COMBank#readme"
+  "homepage": "https://github.com/nimash3eshan/COMBank#readme",
+  "dependencies": {
+    "prettier": "^2.6.2"
+  }
 }

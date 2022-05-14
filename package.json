@@ -1,0 +1,19 @@
+{
+  "name": "combank",
+  "version": "1.0.0",
+  "description": "acccouting group assignment",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nimash3eshan/COMBank.git"
+  },
+  "author": "Nimz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nimash3eshan/COMBank/issues"
+  },
+  "homepage": "https://github.com/nimash3eshan/COMBank#readme"
+}

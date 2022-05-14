@@ -31,7 +31,7 @@
                 <li class="active">
                     <a href="./trans.html">
                         <i class='bx bxs-shopping-bag-alt'></i>
-                        <span class="text">Transactions</span>
+                        <span class="text">Ledger Balancess</span>
                     </a>
                 </li>
                 <li>
@@ -100,14 +100,14 @@
             <main>
                 <div class="head-title">
                     <div class="left">
-                        <h1>Transactions</h1>
+                        <h1>Ledger Balancess</h1>
                         <ul class="breadcrumb">
                             <li>
                                 <a href="#">Home</a>
                             </li>
                             <li><i class='bx bx-chevron-right'></i></li>
                             <li>
-                                <a class="active" href="#">Transactions</a>
+                                <a class="active" href="#">Ledger Balancess</a>
                             </li>
                         </ul>
                     </div>
@@ -116,22 +116,34 @@
                 <div class="table-data">
                     <div class="order">
                         <div class="head">
-                            <h3>Update Your Transactions</h3>
+                            <h3>Update Your Ledger Balancess</h3>
                             <i class='bx bx-search'></i>
                             <i class='bx bx-filter'></i>
                         </div>
                         <!-- here update the journals -->
+                        <form action="">
                             <label for="date">Date & Time</label>&nbsp;&nbsp;&nbsp;&nbsp;
                             <input type="datetime-local" name="" id="" style="width: 2	200px; padding: 5px;"><br><br>
-                            <label for="number">Note Number</label>&nbsp;
-                            <input type="number" name="" id="" style="width: 100px; padding: 5px;"><br><br>
-                            <label for="name">Supplier / Customer Name</label><br>
-                            <input type="text" name="" id="" style="width: 400px; padding: 5px; margin-top: 5px;"><br><br>
-                            <label for="desc">Description</label><br>
-                            <textarea name="" id="" style="width: 398px; height: 76px;resize: none;"></textarea><br><br>
+
+                            <label for="tbtype">Select the type</label>&nbsp;&nbsp;
+                            <select name="tbtype" >
+                                <option value="assest">Assest</option>
+                                <option value="expense">Expense</option>
+                                <option value="capital">Capital</option>
+                                <option value="income">Income</option>
+                                <option value="Liab">Liability</option>
+                            </select><br><br>
+                            <label for="cr">Credit or Debit?</label>&nbsp;&nbsp;
+                            <select name="cr">
+                                <option value="credit">Credit</option>
+                                <option value="debit">Debit</option>
+                            </select><br><br>
+                            <label for="desc">Accounting Title</label><br>
+                            <textarea name="" id="" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
                             <label for="tot">Total Amount (Rs)</label>&nbsp;
-                            <input type="number" name="" id="" style="width: 243px; padding: 5px;"><br><br><br>
+                            <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;"><br><br><br>
                             <button>ADD to Trial Balance</button><br><br>
+                        </form>
                             <button class="red adj">Show Adjustments</button>
                     </div>
 
@@ -142,6 +154,36 @@
                             <i class='bx bx-plus'></i>
                             <i class='bx bx-filter'></i> 
                         </div>
+
+                        <!--rose     Main selection area-->
+                        <label for="date">Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
+                        <input type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
+
+                        <label for="tbtype">Select the type</label>&nbsp;&nbsp;
+                        <select name="tbtype" >
+                            <option value="accu">Accurals</option>
+                            <option value="prepay">Prepayments</option>
+                            <option value="inrec">Income Receivables</option>
+                            <option value="inad">Income Received In Advance</option>
+                            <option value="baddebt">Bad Debt</option>
+                            <option value="prodebt">Provision For Doubtfull Debt</option>
+                            <option value="deprec">Depreciation</option>
+                        </select><br><br>
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
                         <button class="red adjhide">Hide Adjustments</button>
                     </div>
                 </div>

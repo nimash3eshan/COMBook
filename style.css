@@ -565,7 +565,8 @@ body {
 
 /*Button*/
 
-#content main .table-data .order button {
+#content main .table-data .order button,
+#content main .table-data .todo button {
     padding: 1.3em 3em;
     font-size: 12px;
     text-transform: uppercase;
@@ -581,7 +582,8 @@ body {
     outline: none;
 }
 
-#content main .table-data .order button:hover {
+#content main .table-data .order button:hover,
+#content main .table-data .todo button:hover {
     background-color: #23c483;
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
     color: #fff;
@@ -612,7 +614,11 @@ body {
     transform: translateY(-7px);
 }
 
-
+/* select options */
+select{
+    padding: 5px; 
+    font-size: 15px;
+}
 
 
 #content main .table-data .order button:active {

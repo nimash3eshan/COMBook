@@ -4,49 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
     <!-- Boxicons -->
-    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <!-- My CSS -->
     <link rel="stylesheet" href="style.css">
-    <!--title icon-->
     <link rel="shortcut icon" href="./img/icon.ico">
+    <link rel="stylesheet" href="fps.css">
+
+
     <title>COMBook</title>
 </head>
 
 <body>
+
+
+    <!-- SIDEBAR -->
     <section id="sidebar">
         <a href="#" class="brand">
-            <i class="bx bxs-smile"></i>
+            <i class='bx bxs-smile'></i>
             <span class="text">COMBook</span>
         </a>
         <ul class="side-menu top">
             <li>
                 <a href="./index.html">
-                    <i class="bx bxs-dashboard"></i>
+                    <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
             <li>
                 <a href="./trans.html">
-                    <i class="bx bxs-shopping-bag-alt"></i>
+                    <i class='bx bxs-shopping-bag-alt'></i>
                     <span class="text">Transactions</span>
                 </a>
             </li>
             <li>
                 <a href="./tb.html">
-                    <i class="bx bxs-doughnut-chart"></i>
+                    <i class='bx bxs-doughnut-chart'></i>
                     <span class="text">Trial Balance</span>
                 </a>
             </li>
             <li>
                 <a href="./PnL.html">
-                    <i class="bx bxs-message-dots"></i>
+                    <i class='bx bxs-message-dots'></i>
                     <span class="text">Profit & Loss</span>
                 </a>
             </li>
             <li class="active">
-                <a href="#">
-                    <i class="bx bxs-group"></i>
+                <a href="./fps.html">
+                    <i class='bx bxs-group'></i>
                     <span class="text">Financial Positions</span>
                 </a>
             </li>
@@ -54,41 +61,46 @@
         <ul class="side-menu">
             <li>
                 <a href="./team.html">
-                    <i class="bx bxs-cog"></i>
+                    <i class='bx bxs-cog'></i>
                     <span class="text">Our Team</span>
                 </a>
             </li>
             <li>
                 <a href="#" class="logout">
-                    <i class="bx bxs-log-out-circle"></i>
+                    <i class='bx bxs-log-out-circle'></i>
                     <span class="text">Logout</span>
                 </a>
             </li>
         </ul>
     </section>
+    <!-- SIDEBAR -->
+
+
+
+    <!-- CONTENT -->
     <section id="content">
         <!-- NAVBAR -->
         <nav>
-            <i class="bx bx-menu"></i>
+            <i class='bx bx-menu'></i>
             <a href="#" class="nav-link">Categories</a>
             <form action="#">
                 <div class="form-input">
                     <input type="search" placeholder="Search...">
-                    <button type="submit" class="search-btn">
-                            <i class="bx bx-search"></i>
-                        </button>
+                    <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
                 </div>
             </form>
             <input type="checkbox" id="switch-mode" hidden>
             <label for="switch-mode" class="switch-mode"></label>
             <a href="#" class="notification">
-                <i class="bx bxs-bell"></i>
+                <i class='bx bxs-bell'></i>
                 <span class="num">8</span>
             </a>
             <a href="#" class="profile">
                 <img src="img/people.png">
             </a>
         </nav>
+        <!-- NAVBAR -->
+
         <!-- MAIN -->
         <main>
             <div class="head-title">
@@ -98,304 +110,262 @@
                         <li>
                             <a href="#">Home</a>
                         </li>
-                        <li>
-                            <i class="bx bx-chevron-right"></i>
-                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
                         <li>
                             <a class="active" href="#">Statement of Financial Position</a>
                         </li>
                     </ul>
                 </div>
-                <a href="#" class="btn-download" onClick="window.print(); return false;">
+                <a href="#" class="btn-download">
                     <i class='bx bxs-cloud-download'></i>
                     <span class="text">PRINT</span>
                 </a>
             </div>
-            <div class="table-data">
-                <div class="order">
-                    <div class="head">
 
-                        <h4 class="fps">Statement of Financial Position</h4>
-
-
-                        <i class="bx bx-search"></i>
-                        <i class="bx bx-filter"></i>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Current Assets</th>
-                                        <th>Rs.</th>
-                                    </tr>
-
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Cash</td>
-                                        <td>70000</td>
-
-
-                                    </tr>
-                                    <tr>
-                                        <td>Short Term investment</td>
-                                        <td>50000</td>
-
-
-                                    </tr>
-                                    <tr>
-                                        <td>Accounts Receivable</td>
-                                        <td>100000</td>
-
-
-                                    </tr>
-                                    <tr>
-                                        <td>Prepaid Rent</td>
-                                        <td>50000</td>
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Inventory</td>
-                                        <td>55000</td>
-
-
-                                    </tr>
-                                    <tr class="total">
-                                        <td>Total Current Assets</td>
-                                        <td>325000</td>
-
-
-                                    </tr>
-                                </tbody>
-
-
-
-                            </table>
-                        </div>
-                        <div class="col-6">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Current Liabilities</th>
-                                        <th>Rs.</th>
-                                    </tr>
-
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Accounts Payable</td>
-                                        <td>1000</td>
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Short-term Loans</td>
-                                        <td>150</td>
-
-
-                                    </tr>
-                                    <tr>
-                                        <td>Accrued-expenses</td>
-                                        <td>405</td>
-
-
-                                    </tr>
-                                    <tr class="total">
-                                        <td>Total Current Liabilities</td>
-                                        <td>1555</td>
-
-
-                                    </tr>
-
-                                </tbody>
-
-
-
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-6">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Non-Current Assets</th>
-                                        <th></th>
-
-                                    </tr>
-
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Land</td>
-                                        <td>30000</td>
-
-
-                                    </tr>
-                                    <tr>
-                                        <td>Property,plant and equipment</td>
-                                        <td>20000</td>
-
-
-                                    </tr>
-                                    <tr>
-                                        <td>Allowance for depreciation</td>
-                                        <td>(5000)</td>
-
-
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>15000</td>
-
-
-                                    </tr>
-                                    <tr>
-                                        <td>Other receivables</td>
-                                        <td>550</td>
-
-
-                                    </tr>
-                                    <tr>
-                                        <td>GoodWill</td>
-                                        <td>20000</td>
-
-
-                                    </tr>
-                                    <tr>
-                                        <td>Website and domains</td>
-                                        <td>46000</td>
-
-
-                                    </tr>
-                                    <tr>
-                                        <td>Other Intangible assets</td>
-                                        <td>12000</td>
-
-
-                                    </tr>
-                                    <tr class="total">
-                                        <td>Total Non-Current Assets</td>
-                                        <td>123550</td>
-
-
-                                    </tr>
-                                    <tr class="fulltotal">
-                                        <td>Total Assets</td>
-                                        <td>448550</td>
-
-
-                                    </tr>
-                                </tbody>
-
-
-
-                            </table>
-                        </div>
-                        <div class="col-6">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Non-Current Liabilities</th>
-                                        <th></th>
-                                    </tr>
-
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Long-term loans</td>
-                                        <td>1060</td>
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Bands payable</td>
-                                        <td>55</td>
-
-
-                                    </tr>
-                                    <tr>
-                                        <td>Deferred tax</td>
-                                        <td>40</td>
-
-
-                                    </tr>
-                                    <tr class="total">
-                                        <td>Total Non-Current Liabilities</td>
-                                        <td>1155</td>
-
-
-                                    </tr>
-                                    <tr class="subfulltotal">
-                                        <td>Total Liabilities</td>
-                                        <td>2710</td>
-
-
-                                    </tr>
-                                </tbody>
-
-
-
-                            </table>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Owners' equity</th>
-                                        <th></th>
-                                    </tr>
-
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Share capital</td>
-                                        <td>20000</td>
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Retained earnings</td>
-                                        <td>424990</td>
-
-
-                                    </tr>
-                                    <tr>
-                                        <td>Reserves</td>
-                                        <td>850</td>
-
-
-                                    </tr>
-                                    <tr class="subfulltotal">
-                                        <td>Total Owners' equity</td>
-                                        <td>430550</td>
-
-
-                                    </tr>
-                                    <tr class="fulltotal">
-                                        <td>Total Liabilities & Owners' equity</td>
-                                        <td>448550</td>
-
-
-                                    </tr>
-                                </tbody>
-
-
-
-                            </table>
-                        </div>
-                    </div>
-
-
-
+            <!--content goes here-->
+
+            <!--Company Name-->
+
+            <div class="companynamesection">
+                <h4 class="companyname">Company Name: Araliya PVT Ltd -2021 </h4><br>
+
+
+
+            </div>
+
+            <!--Company Name-->
+
+            <!--P&L area-->
+            <div class="pnlarea">
+
+                <!--Sales-->
+                <div class="salessection">
+                    <table class="shorttable">
+                        <caption class="bold">Current Assets </caption>
+                        <tr>
+                            <td class="deleteboder even" colspan="2">Rs</td>
+                        </tr>
+                        <tr>
+                            <td>Cash</td>
+                            <td class="even">70000.00</td>
+                        </tr>
+                        <tr>
+                            <td>Short term investments</td>
+                            <td class="even">50000.00</td>
+                        </tr>
+                        <tr>
+                            <td>Accounts receivable</td>
+                            <td class="even">100000.00</td>
+                        </tr>
+                        <tr>
+                            <td>Prepaid Rent</td>
+                            <td class="even">50000.00</td>
+                        </tr>
+                        <tr>
+                            <td>Inventory</td>
+                            <td class="even">55000.00</td>
+                        </tr>
+
+                        <tr class="lastrow">
+                            <td class="lasttabledata">Total Current Assets</td>
+                            <td class="lasttabledata even">325000.00</td>
+                        </tr>
+                    </table>
+                    <br>
                 </div>
+                <!--Sales-->
+
+
+                <!--Expenses-->
+                <div class="expensessection">
+                    <table class="shorttable">
+                        <caption class="bold">Current Liabilities</caption>
+                        <tr>
+                            <td class="deleteboder even" colspan="2">Rs</td>
+                        </tr>
+                        <!--Administrative Expenses-->
+
+                        <tr>
+                            <td>Accounts Payable</td>
+                            <td class="even">1000.00</td>
+                        </tr>
+                        <tr>
+                            <td>Short-term loans</td>
+                            <td class="even">150.00</td>
+                        </tr>
+                        <tr>
+                            <td>Accrued Expenses</td>
+                            <td class="even">405.00</td>
+                        </tr>
+                        <tr class="lastrow">
+                            <td class="lasttabledata">Total Current Liabilities</td>
+                            <td class="lasttabledata even">1555.00</td>
+                        </tr>
+                        <!--Administrative Expenses-->
+
+                        <!--Distributing and Selling Expenses-->
+
+                    </table>
+                    <br>
+                </div>
+                <!--Expenses-->
+
+                <div class="expensessection">
+                    <table class="shorttable">
+                        <caption class="bold">Non-Current Liabilities</caption>
+                        <tr>
+                            <td class="deleteboder even" colspan="2">Rs</td>
+                        </tr>
+                        <!--Administrative Expenses-->
+
+                        <tr>
+                            <td>Long-term loans</td>
+                            <td class="even">1060.00</td>
+                        </tr>
+                        <tr>
+                            <td>Bonds payable</td>
+                            <td class="even">55.00</td>
+                        </tr>
+                        <tr>
+                            <td>Deferred tax</td>
+                            <td class="even">40.00</td>
+                        </tr>
+                        <tr class="lastrow">
+                            <td class="lasttabledata">Total Non-Current Liabilities</td>
+                            <td class="lasttabledata even">1155.00</td>
+                        </tr>
+                        <br>
+                        <br>
+
+                        <tr class="lastrow">
+                            <td class="lasttabledata">Total Liabilities</td>
+                            <td class="lasttabledata even">2710.00</td>
+                        </tr>
+                        <!--Administrative Expenses-->
+
+                        <!--Distributing and Selling Expenses-->
+
+                    </table>
+                    <br>
+                </div>
+
+                <!--Cost of Sales-->
+                <div class="costofsalessection">
+
+                    <table class="shorttable">
+                        <caption class="bold">Non-Current Assets</caption>
+                        <tr>
+                            <td class="deleteboder even" colspan="2">Rs</td>
+                        </tr>
+                        <tr>
+                            <td>Land</td>
+                            <td class="even">30000.00</td>
+                        </tr>
+                        <tr>
+                            <td>Property,plant and equipment</td>
+                            <td class="even">20000.00</td>
+                        </tr>
+                        <tr>
+                            <td>Allowance for depreciation</td>
+                            <td class="even">(5000.00)</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="even">15000.00</td>
+                        </tr>
+                        <tr>
+                            <td>Other receivables</td>
+                            <td class="even">550.00</td>
+                        </tr>
+                        <tr>
+                            <td>Goodwill</td>
+                            <td class="even">20000.00</td>
+                        </tr>
+                        <tr>
+                            <td>Website and domains</td>
+                            <td class="even">46000.00</td>
+                        </tr>
+                        <tr>
+                            <td>Other intangible assets</td>
+                            <td class="even">12000.00</td>
+                        </tr>
+                        <tr class="lastrow">
+                            <td class="lasttabledata">Total Non-current Assets</td>
+                            <td class="lasttabledata even">123550.00</td>
+                        </tr>
+                    </table>
+                    <br>
+                </div>
+                <!--Cost of Sales-->
+
+
+
+                <!--Income-->
+                <div class="incomesection">
+                    <table class="shorttable">
+                        <caption class="bold">Owner's equity</caption>
+                        <tr>
+                            <td class="deleteboder even" colspan="2">Rs</td>
+                        </tr>
+                        <tr>
+                            <td>share capital</td>
+                            <td class="even">20000.00</td>
+                        </tr>
+                        <tr>
+                            <td>Retained earnings</td>
+                            <td class="even">424990.00</td>
+                        </tr>
+                        <tr>
+                            <td>Reserves</td>
+                            <td class="even">850.00</td>
+                        </tr>
+                        <tr class="lastrow">
+                            <td class="lasttabledata">Total Owner's equity</td>
+                            <td class="lasttabledata even">430550.00</td>
+                        </tr>
+                    </table>
+                    <br>
+                </div>
+                <!--Income-->
+
+                <!--Gross Profit-->
+                <div class="grossprofitsection">
+                    <table class="shorttable">
+
+                        <tr>
+                            <td class="profit">Total Assets</td>
+                            <td class="even lastrow bold">448550.00</td>
+                        </tr>
+                    </table>
+                </div>
+                <!--Gross Profit-->
+                <br><br>
+
+                <!--Net Profit-->
+                <div class="netprofitsection">
+                    <table class="shorttable">
+
+                        <tr>
+                            <td class="profit">Total Liabilities and Equity</td>
+                            <td class="even lastrow bold">448550.00</td>
+                        </tr>
+                    </table>
+                </div>
+                <!--Net Profit-->
+            </div>
+            <!--P&L area-->
         </main>
+        <!-- MAIN -->
     </section>
+    <!-- CONTENT -->
+
+
+    </main>
+    <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+
+
     <script src="script.js"></script>
 </body>
 

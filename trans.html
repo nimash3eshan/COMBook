@@ -160,7 +160,8 @@
                         <input type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
 
                         <label for="tbtype">Select the type</label>&nbsp;&nbsp;
-                        <select name="tbtype" >
+                        <select name="tbtype" class="tbtype">
+                            <option>Please Select The Option</option>
                             <option value="accu">Accurals</option>
                             <option value="prepay">Prepayments</option>
                             <option value="inrec">Income Receivables</option>
@@ -172,7 +173,7 @@
 
                         <!--blue                                Tooggle option area-->
                         <!--green     accurals-->
-                        <div class="accu-area">
+                        <div class="accu-area adjhide">
                             <hr><br>
                             <h1>Accurals</h1><br>
                             <form action="">
@@ -190,7 +191,7 @@
                         </div>
 
                         <!--green     prepayments-->
-                        <div class="prepay-area">
+                        <div class="prepay-area adjhide">
                             <hr><br>
                             <h1>Prepayments</h1><br>
                             <form action="">
@@ -208,7 +209,7 @@
                         </div>
 
                         <!--green     Income Receivables-->
-                        <div class="inrec-area">
+                        <div class="inrec-area adjhide">
                             <hr><br>
                             <h1>Income Receivables</h1><br>
                             <form action="">
@@ -226,7 +227,7 @@
                         </div>
 
                         <!--green     income received in advance-->
-                        <div class="inad-area">
+                        <div class="inad-area adjhide">
                             <hr><br>
                             <h1>Income Received In Advance</h1><br>
                             <form action="">
@@ -244,7 +245,7 @@
                         </div>
 
                         <!--green     bad debts-->
-                        <div class="baddebt-area">
+                        <div class="baddebt-area adjhide">
                             <hr><br>
                             <h1>Bad debts</h1><br>
                             <form action="">
@@ -262,7 +263,7 @@
                         </div>
 
                         <!--green     Provision for doubtful debts-->
-                        <div class="prodebt-area">
+                        <div class="prodebt-area adjhide">
                             <hr><br>
                             <h1>Provision For Doubtful Debts</h1><br>
                             <form action="">
@@ -280,7 +281,7 @@
                         </div>
 
                         <!--green     depreciation-->
-                        <div class="deprec-area">
+                        <div class="deprec-area adjhide">
                             <hr><br>
                             <h1>Depreciation</h1><br>
                             <form action="">
@@ -297,7 +298,7 @@
                             </form>
                         </div>
 
-                        <button class="red adjhide">Hide Adjustments</button>
+                        <button class="red adjhideall">Hide Adjustments</button>
                     </div>
                 </div>
             </main>

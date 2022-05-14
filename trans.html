@@ -121,7 +121,6 @@
                             <i class='bx bx-filter'></i>
                         </div>
                         <!-- here update the journals -->
-                        <form action="" method="post">
                             <label for="date">Date & Time</label>&nbsp;&nbsp;&nbsp;&nbsp;
                             <input type="datetime-local" name="" id="" style="width: 2	200px; padding: 5px;"><br><br>
                             <label for="number">Note Number</label>&nbsp;
@@ -132,8 +131,8 @@
                             <textarea name="" id="" style="width: 398px; height: 76px;resize: none;"></textarea><br><br>
                             <label for="tot">Total Amount (Rs)</label>&nbsp;
                             <input type="number" name="" id="" style="width: 243px; padding: 5px;"><br><br><br>
-                            <button>ADD</button>
-                        </form>
+                            <button>ADD to Trial Balance</button><br><br>
+                            <button class="red adj">Show Adjustments</button>
                     </div>
 
 
@@ -141,9 +140,9 @@
                         <div class="head">
                             <h3>Adjustments</h3>
                             <i class='bx bx-plus'></i>
-                            <i class='bx bx-filter'></i>
+                            <i class='bx bx-filter'></i> 
                         </div>
-                        
+                        <button class="red adjhide">Hide Adjustments</button>
                     </div>
                 </div>
             </main>
@@ -156,6 +155,7 @@
 
         <script src="script.js"></script>
         <script src="./jquery-3.6.0.min.js"></script>
+        <script src="./trans.js"></script>
 </body>
 
 </html>

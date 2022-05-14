@@ -49,9 +49,12 @@ $(document).ready(() => {
             $('.adjhide').hide();
             $('.prodebt-area').slideDown();
         }
-        else {
+        else if(selectedAdj == 'deprec'){
             $('.adjhide').hide();
             $('.deprec-area').slideDown();
+        }
+        else{
+            $('.adjhide').hide();
         }
 
     })

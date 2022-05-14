@@ -42,19 +42,21 @@ tr :hover{
 
 /*table structure*/
 .shorttable{
-    border: 2px solid gray;
+    
     background-color:  #e6f3ff;
     border-collapse: collapse; 
     margin-top: 5px;
+    border-radius: 20px;
+
 }
 
 tr,td{
-    border: 1px solid grey;
+   
 }
 
 td{
     width: 250px;
-    padding: 3px;
+    padding: 5px;
  
 }
 
@@ -132,5 +134,8 @@ td{
 	.expensessection{
         float: none;
        
+    }
+    td{
+        font-size: 20px;
     }
 }

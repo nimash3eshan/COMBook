@@ -1,0 +1,137 @@
+/* company name section */
+
+.companynamesection {
+    margin-top: 15px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+
+/* company name */
+
+.companyname {
+    padding: 15px;
+    border-radius: 20px;
+    background-color: var(--blue);
+    align-items: center;
+    display: inline-block;
+    color: aliceblue;
+}
+
+.companyyear {
+    margin-top: 20px;
+}
+
+
+/*PnL tablw section-white box*/
+
+.pnlarea {
+    border-radius: 20px;
+    background: var(--light);
+    padding: 24px;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+tr :hover {
+    background: #b3e0ff;
+}
+
+
+/*table structure*/
+
+.shorttable {
+    background-color: #e6f3ff;
+    border-collapse: collapse;
+    margin-top: 5px;
+    border-radius: 20px;
+}
+
+td {
+    width: 250px;
+    padding: 5px;
+}
+
+.deleteboder {
+    border: none;
+    height: 10px;
+    font-size: x-small;
+    font-weight: bold;
+}
+
+
+/*Expenses catagarizations -without row border*/
+
+.expensecatgry {
+    background-color: #99ccff;
+    text-decoration: underline;
+}
+
+.profit {
+    background-color: #99ccff;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/*even rows*/
+
+.even {
+    text-align: right;
+    width: 150px;
+}
+
+
+/*lastrows-decorations*/
+
+.lastrow {
+    background-color: #cce6ff;
+}
+
+.lasttabledata {
+    border-bottom: 5px double grey;
+    border-top: 2px solid grey;
+    font-weight: bold;
+}
+
+
+/*Expenses table--styles*/
+
+.expensessection {
+    float: right;
+}
+
+.salessection {
+    float: left;
+}
+
+.costofsalessection {
+    float: left;
+    clear: left;
+}
+
+.incomesection {
+    float: right;
+    clear: right;
+}
+
+.grossprofitsection {
+    float: left;
+    clear: left;
+}
+
+.netprofitsection {
+    float: left;
+    clear: left;
+}
+
+@media screen and (max-width: 768px) {
+    .expensessection {
+        float: none;
+    }
+    td {
+        font-size: 20px;
+    }
+}

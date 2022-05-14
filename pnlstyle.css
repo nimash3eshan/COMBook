@@ -17,7 +17,13 @@
     align-items: center;
     display: inline-block;
     color: aliceblue;
+    
 
+}
+
+.companyyear{
+    margin-top: 20px;
+   
 }
 
 
@@ -51,6 +57,15 @@ td{
     padding: 3px;
  
 }
+
+.deleteboder{
+    border: none;
+    height: 10px;
+    font-size: x-small;
+    font-weight: bold;
+}
+
+
 
 /*Expenses catagarizations -without row border*/
 .expensecatgry{

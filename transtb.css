@@ -20,7 +20,11 @@
     margin-right:auto;
     
 }
-
+th{
+    width: 140px;
+    padding-top: 15px;
+    text-align: center;
+}
 
 td{
     width: 140px;

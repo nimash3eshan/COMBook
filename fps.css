@@ -103,6 +103,11 @@ td {
     float: right;
 }
 
+.nonliasection{
+  float: right;
+   clear: right;
+}
+
 .salessection {
     float: left;
 }

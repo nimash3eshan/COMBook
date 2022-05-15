@@ -9,6 +9,7 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <!-- My CSS -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./transtb.css">
     <link rel="shortcut icon" href="./img/icon.ico">
     <title>COMBook</title>
 </head>
@@ -120,33 +121,39 @@
                             <i class='bx bx-search'></i>
                             <i class='bx bx-filter'></i>
                         </div>
+
+                        <!--rose                    Local Storage area-->
                         <!-- here update the journals -->
-                        <form action="">
+                        <form onsubmit="managedata(); return false">
                             <label for="date">Date & Time</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="datetime-local" name="" id="" style="width: 2	200px; padding: 5px;"><br><br>
+                            <input type="datetime-local" id="pdate" style="width: 2	200px; padding: 5px;"><br><br>
 
                             <label for="tbtype">Select the type</label>&nbsp;&nbsp;
-                            <select name="tbtype" >
+                            <select name="tbtype" id="ptbtype">
                                 <option value="assest">Assest</option>
                                 <option value="expense">Expense</option>
                                 <option value="capital">Capital</option>
                                 <option value="income">Income</option>
                                 <option value="Liab">Liability</option>
                             </select><br><br>
+
                             <label for="cr">Credit or Debit?</label>&nbsp;&nbsp;
-                            <select name="cr">
+                            <select name="cr" id="pcr">
                                 <option value="credit">Credit</option>
                                 <option value="debit">Debit</option>
                             </select><br><br>
+
                             <label for="desc">Accounting Title</label><br>
-                            <textarea name="" id="" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+                            <textarea id="pdesc" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+
                             <label for="tot">Total Amount (Rs)</label>&nbsp;
-                            <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;"><br><br><br>
+                            <input type="number" id="pqty" placeholder="Amount" style="width: 243px; padding: 5px;"><br><br><br>
+
                             <button>ADD to Trial Balance</button><br><br>
                         </form>
                             <button class="red adj">Show Adjustments</button>
+                        <br><br>
                     </div>
-
 
                     <div class="todo">
                         <div class="head">
@@ -155,7 +162,7 @@
                             <i class='bx bx-filter'></i> 
                         </div>
 
-                        <!--rose     Main selection area-->
+                        <!--rose             Adjustments area-->
                         
                         <label for="tbtype">Select the type</label>&nbsp;&nbsp;
                         <select name="tbtype" class="tbtype">
@@ -311,6 +318,55 @@
                         </div>
 
                         <button class="red adjhideall">Hide Adjustments</button>
+                    </div>
+
+                    <div class="head-title">
+                        <!--//green      Tb Table goes here-->
+                        <div class="table-data">
+                            <div class="order">
+                                <div class="head">
+                                    <h3>Recent Updates</h3>
+                                    <i class='bx bx-search'></i>
+                                    <i class='bx bx-filter'></i>
+                                </div>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th id="id-tb">ID</th>
+                                            <th>Date</th>
+                                            <th>Type</th>
+                                            <th>Status</th>
+                                            <th class="update-desc">description</th>
+                                            <th>Amount (Rs)</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="root">
+                                        <tr>
+                                            <td>1</td>
+                                            <td>01-10-2021</td>
+                                            <td>Assest</td>
+                                            <td>Debit</td>
+                                            <td>purchased 100kg of sugar</td>
+                                            <td>200340.00</td>
+                                            <td id="up"><a href="">Update</a></td>
+                                            <td id="del"><a href="">Delete</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>01-10-2021</td>
+                                            <td>Income</td>
+                                            <td>Credit</td>
+                                            <td>Rent received</td>
+                                            <td>100340.00</td>
+                                            <td id="up"><a href="">Update</a></td>
+                                            <td id="del"><a href="">Delete</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </main>

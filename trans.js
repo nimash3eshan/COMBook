@@ -58,7 +58,7 @@ $(document).ready(() => {
         }
 
     })
+})
 
-    })
-
+//green      End jquery
 

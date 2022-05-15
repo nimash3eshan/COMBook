@@ -124,7 +124,7 @@
 
                         <!--rose                    Local Storage area-->
                         <!-- here update the journals -->
-                        <form onsubmit="managedata(); return false">
+                        <form>
                             <label for="date">Date & Time</label>&nbsp;&nbsp;&nbsp;&nbsp;
                             <input type="datetime-local" id="pdate" style="width: 2	200px; padding: 5px;"><br><br>
 
@@ -136,6 +136,16 @@
                                 <option value="income">Income</option>
                                 <option value="Liab">Liability</option>
                             </select><br><br>
+                            
+                            <div class="hide-for-exp">
+                                <label for="et" class="">Expenses Type</label>&nbsp;&nbsp;
+                                <select name="et" class="ex-type">
+                                    <option value="ad-ex">Administrative Expenses</option>
+                                    <option value="dns-ex">Distributing and Selling Expenses</option>
+                                    <option value="f-ex">Financial Expenses</option>
+                                    <option value="o-ex">Other Expenses</option>
+                                </select><br><br>
+                            </div>
 
                             <label for="cr">Credit or Debit?</label>&nbsp;&nbsp;
                             <select name="cr" id="pcr">

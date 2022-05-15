@@ -57,8 +57,19 @@ $(document).ready(() => {
             $('.adjhide').hide();
         }
 
-    })
+    });
+
+    $('.hide-for-exp').hide();
+    $('select#ptbtype').change(function(){
+        var selectedtype = $(this).children("option:selected").val();
+        if(selectedtype == 'expense'){
+            $('.hide-for-exp').slideDown();
+        }else{
+            $('.hide-for-exp').slideUp();
+        }
+    });
+
 })
 
-//green      End jquery
+
 

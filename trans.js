@@ -113,7 +113,7 @@ document.getElementById('submit').addEventListener("click", () =>{
         alert("All fields must filled!");
         return;
     }
-    console.log("succesfully filled");
+    console.log("successfully filled");
 
     colRecords.doc(record.id.toString()).set({
         title : record.title,
@@ -156,7 +156,7 @@ function addRecord(id, date, type, status, description, amount){
     let table = getElementById("recordTable");
     console.log(table.rows.length)
 
-    let row = table.insertRow();
+    let row = table.tBodies[0].insertRow();
 
     row.insertCell().appendChild(document.createTextNode(id.toString()))
     row.insertCell().appendChild(document.createTextNode(date.toString()))
@@ -170,15 +170,10 @@ function addRecord(id, date, type, status, description, amount){
 //ela
 function clearTable(name){
     let table = getElementById(name);
+    console.log(table.tBodies.length);
 
-    if (table.rows.length > 0){
-        console.log("here");
-        for (let  x= 1; x<table.rows.length; x++)
-        {
-            table.deleteRow(x);
-        }
-    }
-
+    if(table.tBodies.length>0)
+        table.tBodies[0].innerHTML = '';
 }
 
 function  deleteRecord(id){

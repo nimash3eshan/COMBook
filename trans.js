@@ -1,9 +1,23 @@
-// $(document).ready(()=> alert($)); jquery weda 😅
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyCXzTLjIinpg0n-eVpjJzYG2s66Gkv1jIY",
+    authDomain: "combook-676c6.firebaseapp.com",
+    projectId: "combook-676c6",
+    storageBucket: "combook-676c6.appspot.com",
+    messagingSenderId: "346024508214",
+    appId: "1:346024508214:web:10360bd811f89eaa741197"
+};
 
-//green    Jquery goes here
+// Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
+const db = app.firestore();
+let colRecords = db.collection("records");
+let colAdjustments = db.collection("adjustments");
+let reload = false;
+
 
 $(document).ready(() => {
-
+    console.log("ready");
     //show adjustments
     $('.todo').hide();
     $('button.adj').on('click', () => {
@@ -71,5 +85,108 @@ $(document).ready(() => {
 
 })
 
+updateRecords();
 
+document.getElementById('submit').addEventListener("click", () =>{
+    console.log("Submit Clicked");
 
+    let record = {
+        dateAndTime: "",
+        assetType: "",
+        creditDebit: "",
+        title: "",
+        amount: "",
+        exp_type: "",
+        id: "",
+    };
+
+    record.dateAndTime = getElementById("pdate").value;
+    record.assetType = getElementById("ptbtype").value;
+    record.exp_type = getElementById("expense").value;
+    record.creditDebit = getElementById("pcr").value;
+    record.title = getElementById("pdesc").value;
+    record.amount = getElementById("pqty").value;
+    record.id = Date.now();
+    console.log(record);
+
+    if((record.dateAndTime === "")|| (record.title === "") || (record.amount === "") ||((record.assetType === "expense")&&(record.exp_type === "")) ){
+        alert("All fields must filled!");
+        return;
+    }
+    console.log("succesfully filled");
+
+    colRecords.doc(record.id.toString()).set({
+        title : record.title,
+        dateAndTime : record.dateAndTime,
+        assetType : record.assetType,
+        exp_type : record.exp_type,
+        creditDebit : record.creditDebit,
+        amount : record.amount
+    }).then(()=>{
+        console.log("record successfully uploaded");
+        document.getElementById("updateForm").reset();
+        updateRecords();
+    }).catch((e)=>{
+        console.log(" upload error", e);
+    });
+});
+
+function updateRecords(){
+    clearTable("recordTable");
+    colRecords.get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            console.log(doc.id, " => ", doc.data());
+            addRecord(
+                doc.id,
+                doc.data().dateAndTime,
+                doc.data().assetType,
+                doc.data().creditDebit,
+                doc.data().title,
+                doc.data().amount);
+        });
+    })
+}
+
+function getElementById(id){
+    return document.getElementById(id);
+}
+
+function addRecord(id, date, type, status, description, amount){
+
+    let table = getElementById("recordTable");
+    console.log(table.rows.length)
+
+    let row = table.insertRow();
+
+    row.insertCell().appendChild(document.createTextNode(id.toString()))
+    row.insertCell().appendChild(document.createTextNode(date.toString()))
+    row.insertCell().appendChild(document.createTextNode(type.toString()))
+    row.insertCell().appendChild(document.createTextNode(status.toString()))
+    row.insertCell().appendChild(document.createTextNode(description.toString()))
+    row.insertCell().appendChild(document.createTextNode(amount.toString()))
+    row.insertCell().innerHTML = '<td ><button id="'+ id.toString() +'"onclick="deleteRecord(this.id)" type="button">Delete</button></td>';
+
+}
+//ela
+function clearTable(name){
+    let table = getElementById(name);
+
+    if (table.rows.length > 0){
+        console.log("here");
+        for (let  x= 1; x<table.rows.length; x++)
+        {
+            table.deleteRow(x);
+        }
+    }
+
+}
+
+function  deleteRecord(id){
+    colRecords.doc(id).delete().then(() => {
+        console.log("Document successfully deleted!");
+        updateRecords();
+    }).catch((error) => {
+        console.error("Error removing document: ", error);
+        alert(error);
+    });
+}

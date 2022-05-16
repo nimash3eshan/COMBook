@@ -323,7 +323,7 @@ body {
     transition: all .3s ease;
 }
 
-#content nav #switch-mode:checked+.switch-mode::before {
+#content nav #switch-mode:checked+.test::before {
     left: calc(100% - (25px - 4px) - 2px);
 }
 

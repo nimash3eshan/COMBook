@@ -124,53 +124,53 @@
             <!--tb area-->
 
             <div class="tbarea">
-                <table class="tbtable">
+                <table class="tbtable" id="tbTable">
                     <caption class="bold">Trial Balance</caption>
                     <tr>
                         <th>Description</th>
                         <th class="align_right ">Debit <small>(Rs.)</small></th>
                         <th class="align_right ">Credit <small>(Rs.)</small></th>
                     </tr>
-                    <tr>
-                        <td>Equity</td>
-                        <td></td>
-                        <td class="align_right">3000000.00</td>
-                    </tr>
-                    <tr>
-                        <td>Cash</td>
-                        <td class="align_right">4021000.00</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Land</td>
-                        <td></td>
-                        <td class="align_right">500000.00</td>
-                    </tr>
-                    <tr>
-                        <td>Office Expenses</td>
-                        <td class="align_right">45000.00</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Motor Vehicle</td>
-                        <td class="align_right">400000.00</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Sales</td>
-                        <td></td>
-                        <td class="align_right">1000000.00</td>
-                    </tr>
-                    <tr>
-                        <td>Purchase</td>
-                        <td class="align_right">34000.00</td>
-                        <td></td>
-                    </tr>
-                    <tr class="lastrow">
-                        <td></td>
-                        <td class="bold align_right ">4500000.00</td>
-                        <td class="bold align_right">4500000.00</td>
-                    </tr>
+<!--                    <tr>-->
+<!--                        <td>Equity</td>-->
+<!--                        <td></td>-->
+<!--                        <td class="align_right">3000000.00</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>Cash</td>-->
+<!--                        <td class="align_right">4021000.00</td>-->
+<!--                        <td></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>Land</td>-->
+<!--                        <td></td>-->
+<!--                        <td class="align_right">500000.00</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>Office Expenses</td>-->
+<!--                        <td class="align_right">45000.00</td>-->
+<!--                        <td></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>Motor Vehicle</td>-->
+<!--                        <td class="align_right">400000.00</td>-->
+<!--                        <td></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>Sales</td>-->
+<!--                        <td></td>-->
+<!--                        <td class="align_right">1000000.00</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>Purchase</td>-->
+<!--                        <td class="align_right">34000.00</td>-->
+<!--                        <td></td>-->
+<!--                    </tr>-->
+<!--                    <tr class="lastrow">-->
+<!--                        <td></td>-->
+<!--                        <td class="bold align_right ">4500000.00</td>-->
+<!--                        <td class="bold align_right">4500000.00</td>-->
+<!--                    </tr>-->
                 </table>
             </div>
             <!--tb area-->
@@ -181,7 +181,9 @@
     </section>
     <!-- CONTENT -->
 
-
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="tb.js"></script>
     <script src="script.js"></script>
 </body>
 

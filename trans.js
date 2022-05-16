@@ -121,7 +121,7 @@ document.getElementById('submit').addEventListener("click", () =>{
         assetType : record.assetType,
         exp_type : record.exp_type,
         creditDebit : record.creditDebit,
-        amount : record.amount
+        amount : parseInt(record.amount)
     }).then(()=>{
         console.log("record successfully uploaded");
         document.getElementById("updateForm").reset();

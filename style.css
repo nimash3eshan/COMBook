@@ -503,26 +503,34 @@ body {
 #content main .table-data .order table th {
     padding-bottom: 12px;
     font-size: 13px;
-    text-align: center;
+    text-align: end;
     border-bottom: 1px solid var(--grey);
 }
 
 #content main .table-data .order table td {
     padding: 16px 0;
+    text-align: end;
 }
 
 #content main .table-data .order table tr td:first-child {
-    display: flex;
-    align-items: center;
-    grid-gap: 12px;
     padding-left: 6px;
+    font-weight:600;
+    width: 100px;
 }
-
-#content main .table-data .order table td img {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    object-fit: cover;
+#content main .table-data .order table tr td:nth-child(2) {
+    width: 172px;
+}
+#content main .table-data .order table tr td:nth-child(3) {
+    width: 300px;
+}
+#content main .table-data .order table tr td:nth-child(4) {
+    width: 150px;
+}
+#content main .table-data .order table tr td:nth-child(5) {
+    width: 200px;
+}
+#content main .table-data .order table tr td:nth-child(6) {
+    width: 150px;
 }
 
 #content main .table-data .order table tbody tr:hover {
@@ -538,27 +546,23 @@ body {
     font-weight: 700;
 }
 
-#content main .table-data .order table tr td .status.purchace {
-    background: #ff2626;
-}
-
-#content main .table-data .order table tr td .status.purchacer {
+#content main .table-data .order table tr td .status.incomex{
     background: #db5202;
 }
 
-#content main .table-data .order table tr td .status.sales {
+#content main .table-data .order table tr td .status.expensex {
     background: #7ba703;
 }
 
-#content main .table-data .order table tr td .status.salesr {
+#content main .table-data .order table tr td .status.assestx {
     background: #018881;
 }
 
-#content main .table-data .order table tr td .status.cashr {
+#content main .table-data .order table tr td .status.liabilityx {
     background: #2c54d8;
 }
 
-#content main .table-data .order table tr td .status.cashp {
+#content main .table-data .order table tr td .status.capitalx {
     background: #e626ff;
 }
 

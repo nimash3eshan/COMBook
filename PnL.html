@@ -20,7 +20,15 @@
 </head>
 
 <body>
+<script type="text/javascript">
+    setcolor();
 
+    function setcolor(){
+        let state = window.localStorage.getItem("state");
+        if(state==null) return
+        (state === "dark")? document.body.classList.add('dark'):document.body.classList.remove('dark');
+    }
+</script>
 
     <!-- SIDEBAR -->
     <section id="sidebar">

@@ -15,6 +15,20 @@
 </head>
 
 <body>
+<script type="text/javascript">
+    setcolor();
+
+    function setcolor(){
+        let state = window.localStorage.getItem("state");
+        if(state==null) return
+        if (state === "dark") {
+            document.body.classList.add('dark');
+        }
+        else {
+            document.body.classList.remove('dark');
+        }
+    }
+</script>
     <!-- SIDEBAR -->
     <section id="sidebar">
         <a href="#" class="brand">
@@ -84,7 +98,7 @@
                 </div>
             </form>
             <input type="checkbox" id="switch-mode" hidden>
-            <label for="switch-mode" class="switch-mode"></label>
+            <label id="switch-label" for="switch-mode" class="switch-mode"></label>
             <a href="#" class="notification">
                 <i class='bx bxs-bell'></i>
                 <span class="num">8</span>
@@ -233,6 +247,7 @@
 
 
     <script src="script.js"></script>
+
 </body>
 
 </html>

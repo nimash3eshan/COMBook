@@ -154,7 +154,6 @@ function getElementById(id){
 function addRecord(id, date, type, status, description, amount){
 
     let table = getElementById("recordTable");
-    console.log(table.rows.length)
 
     let row = table.tBodies[0].insertRow();
 

@@ -138,7 +138,7 @@
                             </select><br><br>
                             
                             <div class="hide-for-exp">
-                                <label for="et" class="" >Expenses Type</label>&nbsp;&nbsp;
+                                <label for="expense" class="" >Expenses Type</label>&nbsp;&nbsp;
                                 <select name="et" class="ex-type" id="expense">
                                     <option value="" selected="selected">Select Option</option>
                                     <option value="ad-ex">Administrative Expenses</option>
@@ -148,16 +148,16 @@
                                 </select><br><br>
                             </div>
 
-                            <label for="cr">Credit or Debit?</label>&nbsp;&nbsp;
+                            <label for="pcr">Credit or Debit?</label>&nbsp;&nbsp;
                             <select name="cr" id="pcr">
                                 <option value="credit">Credit</option>
                                 <option value="debit">Debit</option>
                             </select><br><br>
 
-                            <label for="desc" >Accounting Title</label><br>
+                            <label for="pdesc" >Accounting Title</label><br>
                             <textarea id="pdesc" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
 
-                            <label for="tot" >Total Amount (Rs)</label>&nbsp;
+                            <label for="pqty" >Total Amount (Rs)</label>&nbsp;
                             <input type="number" id="pqty" placeholder="Amount" style="width: 243px; padding: 5px;"><br><br><br>
 
                             <button type="button" id="submit" target="_blank">ADD to Trial Balance</button><br><br>
@@ -176,7 +176,7 @@
                         <!--rose             Adjustments area-->
                         
                         <label for="tbtype">Select the type</label>&nbsp;&nbsp;
-                        <select name="tbtype" class="tbtype">
+                        <select id="tbtype" class="tbtype">
                             <option>Please Select The Option</option>
                             <option value="accu">Accurals</option>
                             <option value="prepay">Prepayments</option>
@@ -347,7 +347,7 @@
                                             <th>Date</th>
                                             <th>Type</th>
                                             <th>Status</th>
-                                            <th class="update-desc">description</th>
+                                            <th class="update-desc">Description</th>
                                             <th>Amount (Rs)</th>
                                             <th></th>
                                         </tr>
@@ -387,6 +387,7 @@
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
         <script src="script.js"></script>
+        <script src="firebase.js"></script>
         <script src="./jquery-3.6.0.min.js"></script>
         <script src="./trans.js"></script>
 </body>

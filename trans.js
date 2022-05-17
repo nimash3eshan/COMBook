@@ -58,14 +58,14 @@ $(document).ready(() => {
             $('.adjhide').hide();
             $('.baddebt-area').slideDown();
         }
-        else if(selectedAdj == 'prodebt'){
-            $('.adjhide').hide();
-            $('.prodebt-area').slideDown();
-        }
-        else if(selectedAdj == 'deprec'){
-            $('.adjhide').hide();
-            $('.deprec-area').slideDown();
-        }
+        // else if(selectedAdj == 'prodebt'){
+        //     $('.adjhide').hide();
+        //     $('.prodebt-area').slideDown();
+        // }
+        // else if(selectedAdj == 'deprec'){
+        //     $('.adjhide').hide();
+        //     $('.deprec-area').slideDown();
+        // }
         else{
             $('.adjhide').hide();
         }

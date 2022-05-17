@@ -73,6 +73,9 @@ $(document).ready(() => {
     });
 
     $('.hide-for-exp').hide();
+    $('.hide-for-ass').hide();
+    $('.hide-for-liab').hide();
+    
     $('select#ptbtype').change(function(){
         var selectedtype = $(this).children("option:selected").val();
         if(selectedtype == 'expense'){
@@ -82,6 +85,23 @@ $(document).ready(() => {
         }
     });
 
+    $('select#ptbtype').change(function(){
+        var selectedtype = $(this).children("option:selected").val();
+        if(selectedtype == 'asset'){
+            $('.hide-for-ass').slideDown();
+        }else{
+            $('.hide-for-ass').slideUp();
+        }
+    });    
+
+    $('select#ptbtype').change(function(){
+        var selectedtype = $(this).children("option:selected").val();
+        if(selectedtype == 'liab'){
+            $('.hide-for-liab').slideDown();
+        }else{
+            $('.hide-for-liab').slideUp();
+        }
+    });
 })
 
 updateRecords();

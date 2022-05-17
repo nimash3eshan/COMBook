@@ -193,8 +193,45 @@ document.getElementById('accrual_btn').addEventListener(type='click',()=>{
         "accrual");
 
 })
+document.getElementById('prepayments_btn').addEventListener(type='click',()=>{
+    doAdjustment(
+        document.getElementById('ID_prepayment').value,
+        document.getElementById('textarea_prepayment').value,
+        document.getElementById('Amount_prepayment').value,
+        document.getElementById('payments'),
+        "payments");
+
+})
+document.getElementById('Receivables_btn').addEventListener(type='click',()=>{
+    doAdjustment(
+        document.getElementById('ID_receivables').value,
+        document.getElementById('textarea_receivables').value,
+        document.getElementById('Amount_receivables').value,
+        document.getElementById('receivables'),
+        "receivables");
+
+})
+document.getElementById('advance_btn').addEventListener(type='click',()=>{
+    doAdjustment(
+        document.getElementById('ID_advance').value,
+        document.getElementById('textarea_advance').value,
+        document.getElementById('Amount_advance').value,
+        document.getElementById('advance'),
+        "advance");
+
+})
+document.getElementById('debts_btn').addEventListener(type='click',()=>{
+    doAdjustment(
+        document.getElementById('ID_debts').value,
+        document.getElementById('textarea_debts').value,
+        document.getElementById('Amount_debts').value,
+        document.getElementById('debts'),
+        "debts");
+
+})
 
 function doAdjustment(id, title, amount, form, type){
+    if ((id==null) | (id ===""))return;
     db.collection(type).doc(id).set({
         id: id,
         title: title,

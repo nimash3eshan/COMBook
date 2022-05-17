@@ -260,16 +260,14 @@
                             <form action="">
                                 <label for="date">Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
                                 <input type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
-                                <label for="cr">Credit or Debit?</label>&nbsp;&nbsp;
-                                <select name="cr">
-                                    <option value="credit">Credit</option>
-                                    <option value="debit">Debit</option>
-                                </select><br><br>
                                 <label for="desc">Accounting Title</label><br>
                                 <textarea name="" id="" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
-                                <label for="tot">Total Amount (Rs)</label>&nbsp;
-                                <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;"><br><br><br>
-                                <button>ADD to Financial Statements</button><br><br>
+                                <label for="tot">How much income did you receive in advance?</label>&nbsp;
+                                <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
+
+                                <br><br><p><i>Eg: nimalgen apita rent income eka enawa 25000, but enna one gana 20000. u wadiyen 5000k gewala</i><br> Row Id eken rent income walata adala ID eka gannawa. accounting title eken RENT INCOME kiyana eka gannawa. P&L eke enna one 20000 INCOME ekta danawa. financial position eke ara wadiyen apita deepu 5000 CURRENT LIABILITY wala danawa</p><br><br><br>
+
+                                <button>ADD to Statements</button><br><br>
                             </form>
                         </div>
 
@@ -280,21 +278,17 @@
                             <form action="">
                                 <label for="date">Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
                                 <input type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
-                                <label for="cr">Credit or Debit?</label>&nbsp;&nbsp;
-                                <select name="cr">
-                                    <option value="credit">Credit</option>
-                                    <option value="debit">Debit</option>
-                                </select><br><br>
                                 <label for="desc">Accounting Title</label><br>
                                 <textarea name="" id="" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
-                                <label for="tot">Total Amount (Rs)</label>&nbsp;
-                                <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;"><br><br><br>
-                                <button>ADD to Financial Statements</button><br><br>
+                                <label for="tot">What is the amount of Bad Debt?</label>&nbsp;
+                                <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
+                                <br><br><p><i>kasunita denawa 55000 loan ekak. eunata eyata gewanna puluwan kiyala hithenne 50000. ithiri 5000 bad debts walata danawa </i><br> Row Id eken loan ekata adala ID eka gannawa. accounting title eken Bad Debt kiyana eka gannawa. amount eken ara 5000 gannawa -> e 5000 update karanawa P&L eke bad dept wala ara expense type ekata adala thana. Financial position eke current assest kiyana eken adu karanawa e 5000</p><br><br><br>
+                                <button>ADD to Statements</button><br><br>
                             </form>
                         </div>
 
                         <!--green     Provision for doubtful debts-->
-                        <div class="prodebt-area adjhide">
+                        <!-- <div class="prodebt-area adjhide">
                             <hr><br>
                             <h1>Provision For Doubtful Debts</h1><br>
                             <form action="">
@@ -311,10 +305,10 @@
                                 <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;"><br><br><br>
                                 <button>ADD to Financial Statements</button><br><br>
                             </form>
-                        </div>
+                        </div> -->
 
                         <!--green     depreciation-->
-                        <div class="deprec-area adjhide">
+                        <!-- <div class="deprec-area adjhide">
                             <hr><br>
                             <h1>Depreciation</h1><br>
                             <form action="">
@@ -331,7 +325,7 @@
                                 <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;"><br><br><br>
                                 <button>ADD to Financial Statements</button><br><br>
                             </form>
-                        </div>
+                        </div> -->
 
                         <button class="red adjhideall">Hide Adjustments</button>
                     </div>

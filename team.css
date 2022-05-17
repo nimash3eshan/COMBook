@@ -121,7 +121,7 @@ background: linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
 .inner{
     -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
             transform: translateY(-50%) translateZ(60px) scale(0.94);
-    top: 50%;
+    top: 75%;
     position: absolute;
     left: 0;
     width: 100%;
@@ -166,7 +166,9 @@ background: linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
 font-size: 2rem;
 margin-bottom: 2rem;
 position: relative;
+color: #ffffffde;
 }
+
 
 .front .inner p:after{
 content: '';

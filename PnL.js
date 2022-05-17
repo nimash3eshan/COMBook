@@ -13,48 +13,368 @@ const app = firebase.initializeApp(firebaseConfig);
 const db = app.firestore();
 let colRecords = db.collection("records");
 
-var sales = document.getElementById("sales");
-var returnInwards = document.getElementById("returnInwards");
-var SalesTotal = document.getElementById("salesTotal");
-var wagesSalaries = document.getElementById("wagesSalaries");
-var rent = document.getElementById("rent");
-var rate = document.getElementById("rate");
-var TotalAdminstrativeExpenses = document.getElementById("TotalAdminstrativeExpenses");
-var deliveryVan = document.getElementById("deliveryVan");
-var advertisement = document.getElementById("advertisement");
-var badDebts = document.getElementById("badDebts");
-var CarrageOutwards = document.getElementById("CarrageOutwards");
-var TotalDistributingExpenses = document.getElementById("TotalDistributingExpenses");
-var bankCharges = document.getElementById("BankCharges");
-var Overdraft = document.getElementById("Overdraft");
-var financialTotal = document.getElementById("FinancialTotal");
-var Sundry = document.getElementById("Sundry");
-var Donation = document.getElementById("Donation");
-var TotalOthers = document.getElementById("TotalOthers");
-var TotalExpenses = document.getElementById("TotalExpenses");
-var OpenStock = document.getElementById("OpenStock");
-var Purchase = document.getElementById("Purchase");
-var CarryInwards = document.getElementById("CarryInwards");
-var ReturnOutwards = document.getElementById("ReturnOutwards");
-var CloseInventory = document.getElementById("CloseInventory");
-var TotalCostOfSales = document.getElementById("TotalCostOfSales");
-var discountrecived = document.getElementById("discountrecived");
-var rentincome = document.getElementById("rentincome");
-var profit = document.getElementById("profit");
-var TotalIncome = document.getElementById("TotalIncome");
-var TotalGrossProfit = document.getElementById("TotalGrossProfit");
-var netprofit = document.getElementById("netprofit");
+// const sales = document.getElementById("sales");
+// const returnInwards = document.getElementById("returnInwards");
+// const SalesTotal = document.getElementById("salesTotal");
+// const wagesSalaries = document.getElementById("wagesSalaries");
+// const rent = document.getElementById("rent");
+// const rate = document.getElementById("rate");
+// const TotalAdminstrativeExpenses = document.getElementById("TotalAdminstrativeExpenses");
+// const deliveryVan = document.getElementById("deliveryVan");
+// const advertisement = document.getElementById("advertisement");
+// const badDebts = document.getElementById("badDebts");
+// const CarrageOutwards = document.getElementById("CarrageOutwards");
+// const TotalDistributingExpenses = document.getElementById("TotalDistributingExpenses");
+// const bankCharges = document.getElementById("BankCharges");
+// const Overdraft = document.getElementById("Overdraft");
+// const financialTotal = document.getElementById("FinancialTotal");
+// const Sundry = document.getElementById("Sundry");
+// const Donation = document.getElementById("Donation");
+// const TotalOthers = document.getElementById("TotalOthers");
+// const TotalExpenses = document.getElementById("TotalExpenses");
+// const OpenStock = document.getElementById("OpenStock");
+// const Purchase = document.getElementById("Purchase");
+// const CarryInwards = document.getElementById("CarryInwards");
+// const ReturnOutwards = document.getElementById("ReturnOutwards");
+// const CloseInventory = document.getElementById("CloseInventory");
+// const TotalCostOfSales = document.getElementById("TotalCostOfSales");
+// const discountrecived = document.getElementById("discountrecived");
+// const rentincome = document.getElementById("rentincome");
+// const profit = document.getElementById("profit");
+// const TotalIncome = document.getElementById("TotalIncome");
+// const TotalGrossProfit = document.getElementById("TotalGrossProfit");
+// const netprofit = document.getElementById("netprofit");
 
+
+let records = [];
+let accruals = [];
+let prepayments = [];
+let receivables = [];
+let advance = [];
+let debts = [];
+let total2 = 0;
 
 colRecords.get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
         let obj = {
-            ID : doc.id ,
-            Date: doc.data().dateAndTime ,
-            description: doc.data().title ,
-            Type: doc.data().assetType ,
-            Exp_Type: (doc.data().exp_type == "")? "-":doc.data().exp_type ,
+            ID: doc.id,
+            Date: doc.data().dateAndTime,
+            description: doc.data().title,
+            Type: doc.data().assetType,
+            Exp_Type: (doc.data().exp_type == "") ? "-" : doc.data().exp_type,
             Amount: doc.data().amount
         };
+        records.push(obj);
+
     });
+    getData().then(r => {
+        administrative();
+        console.log(total2);
+        distributing();
+        financialExpenses();
+        other();
+        document.getElementById('TotalExpenses').innerHTML = total2.toString();
+        total2 = 0;
+        sales_set();
+        ret_inw_set();
+        sales_tot_set();
+        total2 = 0;
+        opn_stk_set();
+        purch_set();
+        c_inw_set();
+        r_inw_set();
+        clo_inv_set();
+        cos_of_sales_set();
+        total2 = 0;
+        discountrecived();
+        rentincome();
+        TotalIncome();
+        set_profits();
+
+    });
+
+}).catch((e) => {
+    console.log(e);
 })
+
+async function getData() {
+    await db.collection("accrual").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            let obj = {
+                ID: doc.id,
+                description: doc.data().title,
+                Amount: doc.data().amount
+            };
+            accruals.push(obj);
+        });
+    }).catch((e) => {
+        console.log(e);
+    })
+    await db.collection("payments").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            let obj = {
+                ID: doc.id,
+                description: doc.data().title,
+                Amount: doc.data().amount
+            };
+            prepayments.push(obj);
+        });
+    }).catch((e) => {
+        console.log(e);
+    })
+    await db.collection("receivables").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            let obj = {
+                ID: doc.id,
+                description: doc.data().title,
+                Amount: doc.data().amount
+            };
+            receivables.push(obj);
+        });
+    }).catch((e) => {
+        console.log(e);
+    })
+    await db.collection("debts").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            let obj = {
+                ID: doc.id,
+                description: doc.data().title,
+                Amount: doc.data().amount
+            };
+            debts.push(obj);
+        });
+    }).catch((e) => {
+        console.log(e);
+    })
+    await db.collection("advance").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            let obj = {
+                ID: doc.id,
+                description: doc.data().title,
+                Amount: doc.data().amount
+            };
+            advance.push(obj);
+        });
+    }).catch((e) => {
+        console.log(e);
+    })
+}
+
+function administrative() {
+    let total = 0;
+    let filtered = records.filter(e =>{return ((e.Type === "expense") && (e.Exp_Type ==="ad-ex"))})
+    console.log(filtered);
+    filtered.forEach((r, idx, array) => {
+        total += r.Amount;
+        console.log(r, idx,array);
+        if(Object.is(array.length - 1, idx)) {
+            console.log(r);
+            document.getElementById("administrative").innerHTML += '<tr>\n' +
+                '                            <td>' + r.description + '</td>\n' +
+                '                            <td class="even" id="wagesSalaries">' + r.Amount + '</td>\n' +
+                '                            <td class="even" id="TotalAdminstrativeExpenses"> '+total+' </td>'+
+                '                        </tr>';
+            total2 += total;
+        }
+        else {
+            console.log(r+"2");
+
+            document.getElementById("administrative").innerHTML += '<tr>\n' +
+                '                            <td>' + r.description + '</td>\n' +
+                '                            <td class="even" id="wagesSalaries">' + r.Amount + '</td>\n' +
+                '                        </tr>';
+        }
+    });
+}
+function distributing() {
+    let total = 0;
+    let filtered = records.filter(e =>{return ((e.Type === "expense") && (e.Exp_Type ==="dns-ex"))})
+    console.log(filtered);
+    filtered.forEach((r, idx, array) => {
+        total += r.Amount;
+        console.log(r, idx,array);
+        if(Object.is(array.length - 1, idx)) {
+            console.log(r);
+            document.getElementById("distributing").innerHTML += '<tr>\n' +
+                '                            <td>' + r.description + '</td>\n' +
+                '                            <td class="even" id="wagesSalaries">' + r.Amount + '</td>\n' +
+                '                            <td class="even" id="TotalAdminstrativeExpenses"> '+total+' </td>'+
+                '                        </tr>';
+            total2 += total;
+        }
+        else {
+            console.log(r+"2");
+
+            document.getElementById("distributing").innerHTML += '<tr>\n' +
+                '                            <td>' + r.description + '</td>\n' +
+                '                            <td class="even" id="wagesSalaries">' + r.Amount + '</td>\n' +
+                '                        </tr>';
+        }
+    });
+}
+function financialExpenses() {
+    let total = 0;
+    let filtered = records.filter(e =>{return ((e.Type === "expense") && (e.Exp_Type ==="f-ex"))})
+    console.log(filtered);
+    filtered.forEach((r, idx, array) => {
+        total += r.Amount;
+        console.log(r, idx,array);
+        if(Object.is(array.length - 1, idx)) {
+            console.log(r);
+            document.getElementById("financialExpenses").innerHTML += '<tr>\n' +
+                '                            <td>' + r.description + '</td>\n' +
+                '                            <td class="even" id="wagesSalaries">' + r.Amount + '</td>\n' +
+                '                            <td class="even" id="TotalDistributingExpenses"> '+total+' </td>'+
+                '                        </tr>';
+            total2 += total;
+
+        }
+        else {
+            console.log(r+"2");
+
+            document.getElementById("financialExpenses").innerHTML += '<tr>\n' +
+                '                            <td>' + r.description + '</td>\n' +
+                '                            <td class="even" id="wagesSalaries">' + r.Amount + '</td>\n' +
+                '                        </tr>';
+        }
+    });
+}
+function other() {
+    let total = 0;
+    let filtered = records.filter(e =>{return ((e.Type === "expense") && (e.Exp_Type ==="f-ex"))})
+    filtered.forEach((r, idx, array) => {
+        total += r.Amount;
+        if(Object.is(array.length - 1, idx)) {
+            document.getElementById("other").innerHTML += '<tr>\n' +
+                '                            <td>' + r.description + '</td>\n' +
+                '                            <td class="even" id="wagesSalaries">' + r.Amount + '</td>\n' +
+                '                            <td class="even" id="TotalDistributingExpenses"> '+total+' </td>'+
+                '                        </tr>';
+            total2 += total;
+
+        }
+        else {
+
+            document.getElementById("other").innerHTML += '<tr>\n' +
+                '                            <td>' + r.description + '</td>\n' +
+                '                            <td class="even" id="wagesSalaries">' + r.Amount + '</td>\n' +
+                '                        </tr>';
+        }
+    });
+}
+
+function sales_set(){
+    let total = 0;
+    const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'sales')||(w.description.toLowerCase() === 'sale'))})
+    filtered.forEach((f)=>{
+        total+=f.Amount;
+    })
+    total2+=total;
+    document.getElementById('sales').innerHTML = total;
+}
+
+function ret_inw_set(){
+    let total = 0;
+    const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'return inward')||(w.description.toLowerCase() === 'return inwards')||(w.description.toLowerCase() === 'sales return'))})
+    filtered.forEach((f)=>{
+        total+=f.Amount;
+    })
+    total2 -= total;
+    console.log(total2)
+    document.getElementById('returnInwards').innerHTML = total;
+}
+
+function sales_tot_set(){
+    document.getElementById('SalesTotal').innerHTML = total2;
+}
+
+function opn_stk_set(){
+    let total = 0;
+    const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'opening stock'))})
+    filtered.forEach((f)=>{
+        total+=f.Amount;
+    })
+    total2+=total;
+    document.getElementById('OpenStock').innerHTML = total;
+}
+
+function purch_set(){
+    let total = 0;
+    const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'purchase')||(w.description.toLowerCase() === 'purchases'))})
+    filtered.forEach((f)=>{
+        total+=f.Amount;
+    })
+    total2 += total;
+    console.log(total2)
+    document.getElementById('Purchase').innerHTML = total;
+}
+function c_inw_set(){
+    let total = 0;
+    const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'carry inward')||(w.description.toLowerCase() === 'carry inwards'))})
+    filtered.forEach((f)=>{
+        total+=f.Amount;
+    })
+    total2 += total;
+    console.log(total2)
+    document.getElementById('CarryInwards').innerHTML = total;
+}
+function r_inw_set(){
+    let total = 0;
+    const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'return outward')||(w.description.toLowerCase() === 'return outwards')||(w.description.toLowerCase() === 'purchase return'))})
+    filtered.forEach((f)=>{
+        total+=f.Amount;
+    })
+    total2 += total;
+    console.log(total2)
+    document.getElementById('ReturnOutwards').innerHTML = total;
+}
+function clo_inv_set(){
+    let total = 0;
+    const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'closing inventory'))})
+    filtered.forEach((f)=>{
+        total+=f.Amount;
+    })
+    total2 -= total;
+    console.log(total2)
+    document.getElementById('CloseInventory').innerHTML = total;
+}
+
+function cos_of_sales_set(){
+    document.getElementById('TotalCostOfSales').innerHTML = total2;
+}
+
+function discountrecived(){
+    let total = 0;
+    const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'discount received'))})
+    filtered.forEach((f)=>{
+        total+=f.Amount;
+    })
+    total2 += total;
+    console.log(total2)
+    document.getElementById('discountrecived').innerHTML = total;
+}
+function rentincome(){
+    let total = 0;
+    const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'rent income'))})
+    filtered.forEach((f)=>{
+        total+=f.Amount;
+    })
+    total2 += total;
+    console.log(total2)
+    document.getElementById('rentincome').innerHTML = total;
+}
+
+function TotalIncome(){
+    document.getElementById('TotalIncome').innerHTML = total2;
+}
+
+function set_profits(){
+    document.getElementById('TotalGrossProfit').innerHTML = (parseInt(document.getElementById('SalesTotal').textContent) - parseInt(document.getElementById('TotalCostOfSales').textContent)).toString();
+    document.getElementById('netprofit').innerHTML = (parseInt(document.getElementById('TotalGrossProfit').textContent) + parseInt(document.getElementById('TotalIncome').textContent) - parseInt(document.getElementById('TotalExpenses').textContent)).toString();
+    db.collection("homepage").doc("dashboard").set({
+        Net_Profit: document.getElementById('netprofit').textContent,
+        Gross_Profit: document.getElementById('TotalGrossProfit').textContent
+    }).catch((e) => {
+        console.log(e);
+    })
+}

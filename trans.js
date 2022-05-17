@@ -116,19 +116,22 @@ document.getElementById('submit').addEventListener("click", () =>{
         title: "",
         amount: "",
         exp_type: "",
+        ass_type: "",
         id: "",
     };
 
     record.dateAndTime = getElementById("pdate").value;
     record.assetType = getElementById("ptbtype").value;
     record.exp_type = getElementById("expense").value;
+    record.ass_type = getElementById("asset").value;
+    record.liab_type = getElementById("liab").value;
     record.creditDebit = getElementById("pcr").value;
     record.title = getElementById("pdesc").value;
     record.amount = getElementById("pqty").value;
     record.id = Date.now();
     console.log(record);
 
-    if((record.dateAndTime === "")|| (record.title === "") || (record.amount === "") ||((record.assetType === "expense")&&(record.exp_type === "")) ){
+    if((record.dateAndTime === "")|| (record.title === "") || (record.amount === "") ||((record.assetType === "expense")&&(record.exp_type === ""))||((record.assetType === "asset")&&(record.ass_type === ""))||((record.assetType === "liab")&&(record.liab_type === "")) ){
         alert("All fields must filled!");
         return;
     }
@@ -139,6 +142,8 @@ document.getElementById('submit').addEventListener("click", () =>{
         dateAndTime : record.dateAndTime,
         assetType : record.assetType,
         exp_type : record.exp_type,
+        ass_type : record.ass_type,
+        liab_type : record.liab_type,
         creditDebit : record.creditDebit,
         amount : parseInt(record.amount)
     }).then(()=>{
@@ -213,8 +218,45 @@ document.getElementById('accrual_btn').addEventListener(type='click',()=>{
         "accrual");
 
 })
+document.getElementById('prepayments_btn').addEventListener(type='click',()=>{
+    doAdjustment(
+        document.getElementById('ID_prepayment').value,
+        document.getElementById('textarea_prepayment').value,
+        document.getElementById('Amount_prepayment').value,
+        document.getElementById('payments'),
+        "payments");
+
+})
+document.getElementById('Receivables_btn').addEventListener(type='click',()=>{
+    doAdjustment(
+        document.getElementById('ID_receivables').value,
+        document.getElementById('textarea_receivables').value,
+        document.getElementById('Amount_receivables').value,
+        document.getElementById('receivables'),
+        "receivables");
+
+})
+document.getElementById('advance_btn').addEventListener(type='click',()=>{
+    doAdjustment(
+        document.getElementById('ID_advance').value,
+        document.getElementById('textarea_advance').value,
+        document.getElementById('Amount_advance').value,
+        document.getElementById('advance'),
+        "advance");
+
+})
+document.getElementById('debts_btn').addEventListener(type='click',()=>{
+    doAdjustment(
+        document.getElementById('ID_debts').value,
+        document.getElementById('textarea_debts').value,
+        document.getElementById('Amount_debts').value,
+        document.getElementById('debts'),
+        "debts");
+
+})
 
 function doAdjustment(id, title, amount, form, type){
+    if ((id==null) | (id ===""))return;
     db.collection(type).doc(id).set({
         id: id,
         title: title,

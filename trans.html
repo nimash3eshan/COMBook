@@ -136,7 +136,7 @@
                         <!-- here update the journals -->
                         <form id="updateForm">
                             <label >Date & Time</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="datetime-local" id="pdate" style="width: 2	200px; padding: 5px;"><br><br>
+                            <input type="datetime-local" id="pdate" style="width: 200px; padding: 5px;"><br><br>
 
                             <label for="tbtype" >Select the type</label>&nbsp;&nbsp;
                             <select name="tbtype" id="ptbtype">
@@ -247,10 +247,17 @@
                                 <textarea name="" id="" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
                                 <label for="tot">How much have you overpaid?</label>&nbsp;
                                 <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
+                            <form action="" id="payments">
+                                <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
+                                <input id = "ID_prepayment" type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
+                                <label >Accounting Title</label><br>
+                                <textarea id = "textarea_prepayment" name=""  placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+                                <label >How much have you overpaid?</label>&nbsp;
+                                <input id = "Amount_prepayment" type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
 
                                 <br><br><p><i>Eg: Rent expense wala 12000k gewanna one eka 16000k wadiyen gewala thamai mu trial balance dala (16000) thiyenne.</i><br> Row Id eken rent expence walata adala ID eka gannawa. accounting title eken RENT kiyana eka gannawa. amount eken wadiyen gewapu mudala gannwa(4000) -> e gana adukarala (16000-4000 = 12000) eka update karanawa P&L eke Rent expense wala. wadiyen gwuwa 4000 financial position eke CURRENT ASSEST wala prepaid rent wala update wenawa</p><br><br><br>
 
-                                <button>ADD to Statements</button><br><br>
+                                <button type="button" id="prepayments_btn">>ADD to Statements</button><br><br>
                             </form>
                         </div>
 
@@ -261,16 +268,19 @@
                             <form action="">
                                 <label for="date">Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
                                 <input type="text" placeholder="ID" style="width: 120px; padding: 5px;"><br><br>
+                            <form action="" id="receivables">
+                                <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
+                                <input id = "ID_receivables" type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
 
 
-                                <label for="desc">Accounting Title</label><br>
-                                <textarea name="" id="" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
-                                <label for="tot">How much more do you need to receive?</label>&nbsp;
-                                <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
+                                <label >Accounting Title</label><br>
+                                <textarea id = "textarea_receivables" name=""  placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+                                <label >How much more do you need to receive?</label>&nbsp;
+                                <input id = "Amount_receivables" type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
 
                                 <br><br><p><i>Eg: samangen apita rent income eka enawa 10000, but thawa 5000k ugen labenna one</i><br> Row Id eken rent income walata adala ID eka gannawa. accounting title eken RENT INCOME kiyana eka gannawa. mulu amount eka 15000 danawa P&L eke income ekata. labenna one 5000 financial position eke CURRENT ASSET eke rent income receivable walata danawa</p><br><br><br>
 
-                                <button>ADD to Statements</button><br><br>
+                                <button type="button" id="Receivables_btn" >ADD to Statements</button><br><br>
 
                             </form>
                         </div>
@@ -279,17 +289,18 @@
                         <div class="inad-area adjhide">
                             <hr><br>
                             <h1>Income Received In Advance</h1><br>
-                            <form action="">
-                                <label for="date">Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
-                                <input type="text" placeholder="ID" style="width: 120px; padding: 5px;"><br><br>
-                                <label for="desc">Accounting Title</label><br>
-                                <textarea name="" id="" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
-                                <label for="tot">How much income did you receive in advance?</label>&nbsp;
-                                <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
+                            <form action="" id="advance">
+                                <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
+                                <input id = "ID_advance" type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
+
+                                <label >Accounting Title</label><br>
+                                <textarea id = "textarea_advance" name="" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+                                <label >How much income did you receive in advance?</label>&nbsp;
+                                <input id = "Amount_advance" type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
 
                                 <br><br><p><i>Eg: nimalgen apita rent income eka enawa 25000, but enna one gana 20000. u wadiyen 5000k gewala</i><br> Row Id eken rent income walata adala ID eka gannawa. accounting title eken RENT INCOME kiyana eka gannawa. P&L eke enna one 20000 INCOME ekta danawa. financial position eke ara wadiyen apita deepu 5000 CURRENT LIABILITY wala danawa</p><br><br><br>
 
-                                <button>ADD to Statements</button><br><br>
+                                <button type="button" id="advance_btn">ADD to Statements</button><br><br>
 
                             </form>
                         </div>
@@ -298,15 +309,16 @@
                         <div class="baddebt-area adjhide">
                             <hr><br>
                             <h1>Bad debts</h1><br>
-                            <form action="">
-                                <label for="date">Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
-                                <input type="text" placeholder="ID" style="width: 120px; padding: 5px;"><br><br>
-                                <label for="desc">Accounting Title</label><br>
-                                <textarea name="" id="" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
-                                <label for="tot">What is the amount of Bad Debt?</label>&nbsp;
-                                <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
+                            <form action="" id="debts">
+                                <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
+                                <input id = "ID_debts" type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
+
+                                <label >Accounting Title</label><br>
+                                <textarea id = "textarea_debts" name="" id="" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+                                <label >What is the amount of Bad Debt?</label>&nbsp;
+                                <input id = "Amount_debts" type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
                                 <br><br><p><i>kasunita denawa 55000 loan ekak. eunata eyata gewanna puluwan kiyala hithenne 50000. ithiri 5000 bad debts walata danawa </i><br> Row Id eken loan ekata adala ID eka gannawa. accounting title eken Bad Debt kiyana eka gannawa. amount eken ara 5000 gannawa -> e 5000 update karanawa P&L eke bad dept wala ara expense type ekata adala thana. Financial position eke current assest kiyana eken adu karanawa e 5000</p><br><br><br>
-                                <button>ADD to Statements</button><br><br>
+                                <button type="button" id="debts_btn">ADD to Statements</button><br><br>
 
                             </form>
                         </div>

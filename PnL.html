@@ -23,364 +23,369 @@
 <script type="text/javascript">
     setcolor();
 
-    function setcolor(){
+    function setcolor() {
         let state = window.localStorage.getItem("state");
-        if(state==null) return
-        (state === "dark")? document.body.classList.add('dark'):document.body.classList.remove('dark');
+        if (state == null) return
+        (state === "dark") ? document.body.classList.add('dark') : document.body.classList.remove('dark');
     }
 </script>
 
-    <!-- SIDEBAR -->
-    <section id="sidebar">
-        <a href="#" class="brand">
-            <i class='bx bxs-smile'></i>
-            <span class="text">COMBook</span>
+<!-- SIDEBAR -->
+<section id="sidebar">
+    <a href="#" class="brand">
+        <i class='bx bxs-smile'></i>
+        <span class="text">COMBook</span>
+    </a>
+    <ul class="side-menu top">
+        <li>
+            <a href="./index.html">
+                <i class='bx bxs-dashboard'></i>
+                <span class="text">Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a href="./trans.html">
+                <i class='bx bxs-shopping-bag-alt'></i>
+                <span class="text">Ledger Balancess</span>
+            </a>
+        </li>
+        <li>
+            <a href="./tb.html">
+                <i class='bx bxs-doughnut-chart'></i>
+                <span class="text">Trial Balance</span>
+            </a>
+        </li>
+        <li class="active">
+            <a href="./PnL.html">
+                <i class='bx bxs-message-dots'></i>
+                <span class="text">Profit & Loss</span>
+            </a>
+        </li>
+        <li>
+            <a href="./fps.html">
+                <i class='bx bxs-group'></i>
+                <span class="text">Financial Positions</span>
+            </a>
+        </li>
+    </ul>
+    <ul class="side-menu">
+        <li>
+            <a href="./team.html">
+                <i class='bx bxs-cog'></i>
+                <span class="text">Our Team</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="logout">
+                <i class='bx bxs-log-out-circle'></i>
+                <span class="text">Logout</span>
+            </a>
+        </li>
+    </ul>
+</section>
+<!-- SIDEBAR -->
+
+
+<!-- CONTENT -->
+<section id="content">
+    <!-- NAVBAR -->
+    <nav>
+        <i class='bx bx-menu'></i>
+        <a href="#" class="nav-link">Categories</a>
+        <form action="#">
+            <div class="form-input">
+                <input type="search" placeholder="Search...">
+                <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+            </div>
+        </form>
+        <input type="checkbox" id="switch-mode" hidden>
+        <label for="switch-mode" class="switch-mode"></label>
+        <a href="#" class="notification">
+            <i class='bx bxs-bell'></i>
+            <span class="num">8</span>
         </a>
-        <ul class="side-menu top">
-            <li>
-                <a href="./index.html">
-                    <i class='bx bxs-dashboard'></i>
-                    <span class="text">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="./trans.html">
-                    <i class='bx bxs-shopping-bag-alt'></i>
-                    <span class="text">Ledger Balancess</span>
-                </a>
-            </li>
-            <li>
-                <a href="./tb.html">
-                    <i class='bx bxs-doughnut-chart'></i>
-                    <span class="text">Trial Balance</span>
-                </a>
-            </li>
-            <li class="active">
-                <a href="./PnL.html">
-                    <i class='bx bxs-message-dots'></i>
-                    <span class="text">Profit & Loss</span>
-                </a>
-            </li>
-            <li>
-                <a href="./fps.html">
-                    <i class='bx bxs-group'></i>
-                    <span class="text">Financial Positions</span>
-                </a>
-            </li>
-        </ul>
-        <ul class="side-menu">
-            <li>
-                <a href="./team.html">
-                    <i class='bx bxs-cog'></i>
-                    <span class="text">Our Team</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="logout">
-                    <i class='bx bxs-log-out-circle'></i>
-                    <span class="text">Logout</span>
-                </a>
-            </li>
-        </ul>
-    </section>
-    <!-- SIDEBAR -->
+        <a href="#" class="profile">
+            <img src="img/people.png">
+        </a>
+    </nav>
+    <!-- NAVBAR -->
 
-
-
-    <!-- CONTENT -->
-    <section id="content">
-        <!-- NAVBAR -->
-        <nav>
-            <i class='bx bx-menu'></i>
-            <a href="#" class="nav-link">Categories</a>
-            <form action="#">
-                <div class="form-input">
-                    <input type="search" placeholder="Search...">
-                    <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
-                </div>
-            </form>
-            <input type="checkbox" id="switch-mode" hidden>
-            <label for="switch-mode" class="switch-mode"></label>
-            <a href="#" class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
-            </a>
-            <a href="#" class="profile">
-                <img src="img/people.png">
-            </a>
-        </nav>
-        <!-- NAVBAR -->
-
-        <!-- MAIN -->
-        <main>
-            <div class="head-title">
-                <div class="left">
-                    <h1>Profit and Loss</h1>
-                    <ul class="breadcrumb">
-                        <li>
-                            <a href="#">Home</a>
-                        </li>
-                        <li><i class='bx bx-chevron-right'></i></li>
-                        <li>
-                            <a class="active" href="#">Profit and Loss</a>
-                        </li>
-                    </ul>
-                </div>
-                <a href="#" class="btn-download">
-                    <i class='bx bxs-cloud-download'></i>
-                    <span class="text">PRINT</span>
-                </a>
+    <!-- MAIN -->
+    <main>
+        <div class="head-title">
+            <div class="left">
+                <h1>Profit and Loss</h1>
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li><i class='bx bx-chevron-right'></i></li>
+                    <li>
+                        <a class="active" href="#">Profit and Loss</a>
+                    </li>
+                </ul>
             </div>
+            <a href="#" class="btn-download">
+                <i class='bx bxs-cloud-download'></i>
+                <span class="text">PRINT</span>
+            </a>
+        </div>
 
-            <!--content goes here-->
+        <!--content goes here-->
 
-            <!--Company Name-->
+        <!--Company Name-->
 
-            <div class="companynamesection">
-                <h4 class="companyname">Company Name: Araliya PVT Ltd -2021 </h4><br>
+        <div class="companynamesection">
+            <h4 class="companyname">Company Name: Araliya PVT Ltd -2021 </h4><br>
 
 
+        </div>
 
+        <!--Company Name-->
+
+        <!--P&L area-->
+        <div class="pnlarea">
+
+            <!--Sales-->
+            <div class="salessection">
+                <table class="shorttable">
+                    <caption class="bold">Sales & Return Inwards</caption>
+                    <tr>
+                        <td class="deleteboder even" colspan="2">Rs</td>
+                    </tr>
+                    <tr>
+                        <td>Sales</td>
+                        <td class="even" id="sales">0</td>
+                    </tr>
+                    <tr>
+                        <td>(-) Return Inwards</td>
+                        <td class="even" id="returnInwards">0</td>
+                    </tr>
+                    <tr class="lastrow">
+                        <td class="lasttabledata">sales</td>
+                        <td class="lasttabledata even" id="SalesTotal">0</td>
+                    </tr>
+                </table>
+                <br>
             </div>
-
-            <!--Company Name-->
-
-            <!--P&L area-->
-            <div class="pnlarea">
-
-                <!--Sales-->
-                <div class="salessection">
-                    <table class="shorttable">
-                        <caption class="bold">Sales & Return Inwards </caption>
-                        <tr>
-                            <td class="deleteboder even" colspan="2">Rs</td>
-                        </tr>
-                        <tr>
-                            <td>Sales</td>
-                            <td class="even" id="sales">1000000.00</td>
-                        </tr>
-                        <tr>
-                            <td>(-) Return Inwards</td>
-                            <td class="even" id="returnInwards">40000.00</td>
-                        </tr>
-                        <tr class="lastrow">
-                            <td class="lasttabledata">sales</td>
-                            <td class="lasttabledata even" id="SalesTotal">960000.00</td>
-                        </tr>
-                    </table>
-                    <br>
-                </div>
-                <!--Sales-->
+            <!--Sales-->
 
 
-                <!--Expenses-->
-                <div class="expensessection">
-                    <table class="shorttable">
-                        <caption class="bold">Expenses</caption>
-                        <tr>
-                            <td class="deleteboder even" colspan="2">Rs</td>
-                        </tr>
-                        <!--Administrative Expenses-->
+            <!--Expenses-->
+            <div class="expensessection">
+                <table class="shorttable">
+                    <caption class="bold">Expenses</caption>
+                    <tr>
+                        <td class="deleteboder even" colspan="2">Rs</td>
+                    </tr>
+                    <!--Administrative Expenses-->
+                    <tbody id="administrative">
                         <tr class="expensecatgry">
                             <td>Administrative Expenses</td>
 
                         </tr>
-                        <tr>
-                            <td>Wages & Salaries</td>
-                            <td class="even" id="wagesSalaries">50000.00</td>
-                        </tr>
-                        <tr>
-                            <td>Electrisity</td>
-                            <td class="even">4000.00</td>
-                        </tr>
-                        <tr>
-                            <td>Rent Expenses</td>
-                            <td class="even" id="rent">15000.00</td>
-                        </tr>
-                        <tr>
-                            <td>Rate Expenses</td>
-                            <td class="even" id="rate">2000.00</td>
-                            <td class="even" id="TotalAdminstrativeExpenses">71000.00</td>
-                        </tr>
-                        <!--Administrative Expenses-->
+<!--                        <tr>-->
+<!--                            <td>Wages & Salaries</td>-->
+<!--                            <td class="even" id="wagesSalaries">50000.00</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>Electrisity</td>-->
+<!--                            <td class="even">4000.00</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>Rent Expenses</td>-->
+<!--                            <td class="even" id="rent">15000.00</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>Rate Expenses</td>-->
+<!--                            <td class="even" id="rate">2000.00</td>-->
+<!--                            <td class="even" id="TotalAdminstrativeExpenses">71000.00</td>-->
+<!--                        </tr>-->
+                    </tbody>
+                    <!--Administrative Expenses-->
 
-                        <!--Distributing and Selling Expenses-->
+                    <!--Distributing and Selling Expenses-->
+                    <tbody id="distributing">
                         <tr class="expensecatgry">
                             <td>Distributing and Selling Expenses</td>
 
                         </tr>
-                        <tr>
-                            <td>Delivery Van-Repaire</td>
-                            <td class="even" id="deliveryVan">2000.00</td>
-                        </tr>
-                        <tr>
-                            <td>Advertising Expenses</td>
-                            <td class="even" id="advertisement">25000.00</td>
-                        </tr>
-                        <tr>
-                            <td>Bad Debts</td>
-                            <td class="even" id="badDebts">3000.00</td>
-                        </tr>
-                        <tr>
-                            <td>Carrage Outwards</td>
-                            <td class="even" id="CarrageOutwards">1500.00</td>
-                            <td class="even" id="TotalDistributingExpenses">31500.00</td>
-                        </tr>
-                        <!--Distributing and Selling Expenses-->
+<!--                        <tr>-->
+<!--                            <td>Delivery Van-Repaire</td>-->
+<!--                            <td class="even" id="deliveryVan">2000.00</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>Advertising Expenses</td>-->
+<!--                            <td class="even" id="advertisement">25000.00</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>Bad Debts</td>-->
+<!--                            <td class="even" id="badDebts">3000.00</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>Carrage Outwards</td>-->
+<!--                            <td class="even" id="CarrageOutwards">1500.00</td>-->
+<!--                            <td class="even" id="TotalDistributingExpenses">31500.00</td>-->
+<!--                        </tr>-->
+                    </tbody>
+                    <!--Distributing and Selling Expenses-->
 
-                        <!--Financial Expenses-->
+                    <!--Financial Expenses-->
+                    <tbody id="financialExpenses">
                         <tr class="expensecatgry">
                             <td>Financial Expenses</td>
 
                         </tr>
-                        <tr>
-                            <td>Bank Charges</td>
-                            <td class="even" id="bankCharges">1000.00</td>
-                        </tr>
+<!--                        <tr>-->
+<!--                            <td>Bank Charges</td>-->
+<!--                            <td class="even" id="bankCharges">1000.00</td>-->
+<!--                        </tr>-->
 
-                        <tr>
-                            <td>Overdtaft Interest</td>
-                            <td class="even" id="Overdraft">400.00</td>
-                            <td class="even" id="financialTotal">1400.00</td>
-                        </tr>
-                        <!--Financial Expenses-->
+<!--                        <tr>-->
+<!--                            <td>Overdtaft Interest</td>-->
+<!--                            <td class="even" id="Overdraft">400.00</td>-->
+<!--                            <td class="even" id="financialTotal">1400.00</td>-->
+<!--                        </tr>-->
+                    </tbody>
+                    <!--Financial Expenses-->
 
-                        <!--Other Expenses-->
+                    <!--Other Expenses-->
+                    <tbody id="other">
                         <tr class="expensecatgry">
                             <td>Other Expenses</td>
 
                         </tr>
-                        <tr>
-                            <td>Sundry Expenses</td>
-                            <td class="even" id="Sundry">200.00</td>
-                        </tr>
+<!--                        <tr>-->
+<!--                            <td>Sundry Expenses</td>-->
+<!--                            <td class="even" id="Sundry">200.00</td>-->
+<!--                        </tr>-->
 
-                        <tr>
-                            <td>Donation</td>
-                            <td class="even" id="Donation">400.00</td>
-                            <td class="even" id="TotalOthers">600.00</td>
-                        </tr>
-                        <!--Other Expenses-->
+<!--                        <tr>-->
+<!--                            <td>Donation</td>-->
+<!--                            <td class="even" id="Donation">400.00</td>-->
+<!--                            <td class="even" id="TotalOthers">600.00</td>-->
+<!--                        </tr>-->
+                    </tbody>
+<!--                    &lt;!&ndash;Other Expenses&ndash;&gt;-->
 
-                        <tr class="lastrow">
-                            <td class="lasttabledata">Total Expenses</td>
-                            <td class="lasttabledata even"></td>
-                            <td class="lasttabledata even" id="TotalExpenses">104500.00</td>
-                        </tr>
-                    </table>
-                    <br>
-                </div>
-                <!--Expenses-->
-
-
-
-                <!--Cost of Sales-->
-                <div class="costofsalessection">
-
-                    <table class="shorttable">
-                        <caption class="bold">Cost of Sales</caption>
-                        <tr>
-                            <td class="deleteboder even" colspan="2">Rs</td>
-                        </tr>
-                        <tr>
-                            <td>Opening Stock</td>
-                            <td class="even" id="OpenStock">12000.00</td>
-                        </tr>
-                        <tr>
-                            <td>Purchase</td>
-                            <td class="even" id="Purchase">20000.00</td>
-                        </tr>
-                        <tr>
-                            <td>Carry Inwards</td>
-                            <td class="even" id="CarryInwards">700.00</td>
-                        </tr>
-                        <tr>
-                            <td>Return Outwards</td>
-                            <td class="even" id="ReturnOutwards">1000.00</td>
-                        </tr>
-                        <tr>
-                            <td>(-) Closing Inventory</td>
-                            <td class="even" id="CloseInventory">800.00</td>
-                        </tr>
-                        <tr class="lastrow">
-                            <td class="lasttabledata">Total Cost of Sales</td>
-                            <td class="lasttabledata even" id="TotalCostOfSales">32900.00</td>
-                        </tr>
-                    </table>
-                    <br>
-                </div>
-                <!--Cost of Sales-->
-
-
-
-                <!--Income-->
-                <div class="incomesection">
-                    <table class="shorttable">
-                        <caption class="bold">Income</caption>
-                        <tr>
-                            <td class="deleteboder even" colspan="2">Rs</td>
-                        </tr>
-                        <tr>
-                            <td>Discount Recived </td>
-                            <td class="even" id="discountrecived">500.00</td>
-                        </tr>
-                        <tr>
-                            <td>Rent Income</td>
-                            <td class="even" id="rentincome">2500.00</td>
-                        </tr>
-                        <tr>
-                            <td>Profit & Loss</td>
-                            <td class="even" id="profit">150000.00</td>
-                        </tr>
-                        <tr class="lastrow">
-                            <td class="lasttabledata">Total Income</td>
-                            <td class="lasttabledata even" id="TotalIncome">153000.00</td>
-                        </tr>
-                    </table>
-                    <br>
-                </div>
-                <!--Income-->
-
-                <!--Gross Profit-->
-                <div class="grossprofitsection">
-                    <table class="shorttable">
-
-                        <tr>
-                            <td class="profit">Gross Profit</td>
-                            <td class="even lastrow bold" id="TotalGrossProfit">927100.00</td>
-                        </tr>
-                    </table>
-                </div>
-                <!--Gross Profit-->
-                <br><br>
-
-                <!--Net Profit-->
-                <div class="netprofitsection">
-                    <table class="shorttable">
-
-                        <tr>
-                            <td class="profit">Net Profit</td>
-                            <td class="even lastrow bold" id="netprofit">975600.00</td>
-                        </tr>
-                    </table>
-                </div>
-                <!--Net Profit-->
+                    <tr class="lastrow">
+                        <td class="lasttabledata">Total Expenses</td>
+                        <td class="lasttabledata even"></td>
+                        <td class="lasttabledata even" id="TotalExpenses"></td>
+                    </tr>
+                </table>
+                <br>
             </div>
-            <!--P&L area-->
-        </main>
-        <!-- MAIN -->
-    </section>
-    <!-- CONTENT -->
+            <!--Expenses-->
 
 
+            <!--Cost of Sales-->
+            <div class="costofsalessection">
+
+                <table class="shorttable">
+                    <caption class="bold">Cost of Sales</caption>
+                    <tr>
+                        <td class="deleteboder even" colspan="2">Rs</td>
+                    </tr>
+                    <tr>
+                        <td>Opening Stock</td>
+                        <td class="even" id="OpenStock">0</td>
+                    </tr>
+                    <tr>
+                        <td>Purchase</td>
+                        <td class="even" id="Purchase">0</td>
+                    </tr>
+                    <tr>
+                        <td>Carry Inwards</td>
+                        <td class="even" id="CarryInwards">0</td>
+                    </tr>
+                    <tr>
+                        <td>Return Outwards</td>
+                        <td class="even" id="ReturnOutwards">0</td>
+                    </tr>
+                    <tr>
+                        <td>(-) Closing Inventory</td>
+                        <td class="even" id="CloseInventory">0</td>
+                    </tr>
+                    <tr class="lastrow">
+                        <td class="lasttabledata">Total Cost of Sales</td>
+                        <td class="lasttabledata even" id="TotalCostOfSales">0</td>
+                    </tr>
+                </table>
+                <br>
+            </div>
+            <!--Cost of Sales-->
+
+
+            <!--Income-->
+            <div class="incomesection">
+                <table class="shorttable">
+                    <caption class="bold">Income</caption>
+                    <tr>
+                        <td class="deleteboder even" colspan="2">Rs</td>
+                    </tr>
+                    <tr>
+                        <td>Discount Recived</td>
+                        <td class="even" id="discountrecived">0</td>
+                    </tr>
+                    <tr>
+                        <td>Rent Income</td>
+                        <td class="even" id="rentincome">0</td>
+                    </tr>
+<!--                    <tr>-->
+<!--                        <td>Profit & Loss</td>-->
+<!--                        <td class="even" id="profit">150000.00</td>-->
+<!--                    </tr>-->
+                    <tr class="lastrow">
+                        <td class="lasttabledata">Total Income</td>
+                        <td class="lasttabledata even" id="TotalIncome">0</td>
+                    </tr>
+                </table>
+                <br>
+            </div>
+            <!--Income-->
+
+            <!--Gross Profit-->
+            <div class="grossprofitsection">
+                <table class="shorttable">
+
+                    <tr>
+                        <td class="profit">Gross Profit</td>
+                        <td class="even lastrow bold" id="TotalGrossProfit">0</td>
+                    </tr>
+                </table>
+            </div>
+            <!--Gross Profit-->
+            <br><br>
+
+            <!--Net Profit-->
+            <div class="netprofitsection">
+                <table class="shorttable">
+
+                    <tr>
+                        <td class="profit">Net Profit</td>
+                        <td class="even lastrow bold" id="netprofit">0</td>
+                    </tr>
+                </table>
+            </div>
+            <!--Net Profit-->
+        </div>
+        <!--P&L area-->
     </main>
     <!-- MAIN -->
-    </section>
-    <!-- CONTENT -->
+</section>
+<!-- CONTENT -->
 
 
-    <script src="script.js"></script>
-    <script src="PnL.js"></script>
+</main>
+<!-- MAIN -->
+</section>
+<!-- CONTENT -->
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="script.js"></script>
+<script src="PnL.js"></script>
 </body>
 
 </html>

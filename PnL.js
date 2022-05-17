@@ -46,90 +46,202 @@ const TotalGrossProfit = document.getElementById("TotalGrossProfit");
 const netprofit = document.getElementById("netprofit");
 
 
-let records  = [];
-let accruals  = [];
-let prepayments  = [];
-let receivables  = [];
-let advance  = [];
-let debts  = [];
+let records = [];
+let accruals = [];
+let prepayments = [];
+let receivables = [];
+let advance = [];
+let debts = [];
+let total2 = 0;
 
 colRecords.get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
         let obj = {
-            ID : doc.id ,
-            Date: doc.data().dateAndTime ,
-            description: doc.data().title ,
-            Type: doc.data().assetType ,
-            Exp_Type: (doc.data().exp_type == "")? "-":doc.data().exp_type ,
+            ID: doc.id,
+            Date: doc.data().dateAndTime,
+            description: doc.data().title,
+            Type: doc.data().assetType,
+            Exp_Type: (doc.data().exp_type == "") ? "-" : doc.data().exp_type,
             Amount: doc.data().amount
         };
         records.push(obj);
+
     });
-}).catch((e)=>{
+    administrative();
+    console.log(total2);
+    distributing();
+    financialExpenses();
+    other();
+    document.getElementById('TotalExpenses').innerHTML = total2.toString();
+    total2 = 0;
+}).catch((e) => {
     console.log(e);
 })
 db.collection("accrual").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
         let obj = {
-            ID : doc.id ,
-            description: doc.data().title ,
+            ID: doc.id,
+            description: doc.data().title,
             Amount: doc.data().amount
         };
         accruals.push(obj);
     });
-}).catch((e)=>{
+}).catch((e) => {
     console.log(e);
 })
 db.collection("payments").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
         let obj = {
-            ID : doc.id ,
-            description: doc.data().title ,
+            ID: doc.id,
+            description: doc.data().title,
             Amount: doc.data().amount
         };
         prepayments.push(obj);
     });
-}).catch((e)=>{
+}).catch((e) => {
     console.log(e);
 })
 db.collection("receivables").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
         let obj = {
-            ID : doc.id ,
-            description: doc.data().title ,
+            ID: doc.id,
+            description: doc.data().title,
             Amount: doc.data().amount
         };
         receivables.push(obj);
     });
-}).catch((e)=>{
+}).catch((e) => {
     console.log(e);
 })
 db.collection("debts").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
         let obj = {
-            ID : doc.id ,
-            description: doc.data().title ,
+            ID: doc.id,
+            description: doc.data().title,
             Amount: doc.data().amount
         };
         debts.push(obj);
     });
-}).catch((e)=>{
+}).catch((e) => {
     console.log(e);
 })
 db.collection("advance").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
         let obj = {
-            ID : doc.id ,
-            description: doc.data().title ,
+            ID: doc.id,
+            description: doc.data().title,
             Amount: doc.data().amount
         };
         advance.push(obj);
     });
-}).catch((e)=>{
+}).catch((e) => {
     console.log(e);
 })
 
-console.log(records, accruals, prepayments,
-receivables,
-advance,
-debts)
+function administrative() {
+    let total = 0;
+    let filtered = records.filter(e =>{return ((e.Type === "expense") && (e.Exp_Type ==="ad-ex"))})
+    console.log(filtered);
+    filtered.forEach((r, idx, array) => {
+        total += r.Amount;
+        console.log(r, idx,array);
+        if(Object.is(array.length - 1, idx)) {
+            console.log(r);
+            document.getElementById("administrative").innerHTML += '<tr>\n' +
+                '                            <td>' + r.description + '</td>\n' +
+                '                            <td class="even" id="wagesSalaries">' + r.Amount + '</td>\n' +
+                '                            <td class="even" id="TotalAdminstrativeExpenses"> '+total+' </td>'+
+                '                        </tr>';
+            total2 += total;
+        }
+        else {
+            console.log(r+"2");
+
+            document.getElementById("administrative").innerHTML += '<tr>\n' +
+                '                            <td>' + r.description + '</td>\n' +
+                '                            <td class="even" id="wagesSalaries">' + r.Amount + '</td>\n' +
+                '                        </tr>';
+        }
+    });
+}
+function distributing() {
+    let total = 0;
+    let filtered = records.filter(e =>{return ((e.Type === "expense") && (e.Exp_Type ==="dns-ex"))})
+    console.log(filtered);
+    filtered.forEach((r, idx, array) => {
+        total += r.Amount;
+        console.log(r, idx,array);
+        if(Object.is(array.length - 1, idx)) {
+            console.log(r);
+            document.getElementById("distributing").innerHTML += '<tr>\n' +
+                '                            <td>' + r.description + '</td>\n' +
+                '                            <td class="even" id="wagesSalaries">' + r.Amount + '</td>\n' +
+                '                            <td class="even" id="TotalAdminstrativeExpenses"> '+total+' </td>'+
+                '                        </tr>';
+            total2 += total;
+        }
+        else {
+            console.log(r+"2");
+
+            document.getElementById("distributing").innerHTML += '<tr>\n' +
+                '                            <td>' + r.description + '</td>\n' +
+                '                            <td class="even" id="wagesSalaries">' + r.Amount + '</td>\n' +
+                '                        </tr>';
+        }
+    });
+}
+function financialExpenses() {
+    let total = 0;
+    let filtered = records.filter(e =>{return ((e.Type === "expense") && (e.Exp_Type ==="f-ex"))})
+    console.log(filtered);
+    filtered.forEach((r, idx, array) => {
+        total += r.Amount;
+        console.log(r, idx,array);
+        if(Object.is(array.length - 1, idx)) {
+            console.log(r);
+            document.getElementById("financialExpenses").innerHTML += '<tr>\n' +
+                '                            <td>' + r.description + '</td>\n' +
+                '                            <td class="even" id="wagesSalaries">' + r.Amount + '</td>\n' +
+                '                            <td class="even" id="TotalDistributingExpenses"> '+total+' </td>'+
+                '                        </tr>';
+            total2 += total;
+
+        }
+        else {
+            console.log(r+"2");
+
+            document.getElementById("financialExpenses").innerHTML += '<tr>\n' +
+                '                            <td>' + r.description + '</td>\n' +
+                '                            <td class="even" id="wagesSalaries">' + r.Amount + '</td>\n' +
+                '                        </tr>';
+        }
+    });
+}
+function other() {
+    let total = 0;
+    let filtered = records.filter(e =>{return ((e.Type === "expense") && (e.Exp_Type ==="f-ex"))})
+    console.log(filtered);
+    filtered.forEach((r, idx, array) => {
+        total += r.Amount;
+        console.log(r, idx,array);
+        if(Object.is(array.length - 1, idx)) {
+            console.log(r);
+            document.getElementById("other").innerHTML += '<tr>\n' +
+                '                            <td>' + r.description + '</td>\n' +
+                '                            <td class="even" id="wagesSalaries">' + r.Amount + '</td>\n' +
+                '                            <td class="even" id="TotalDistributingExpenses"> '+total+' </td>'+
+                '                        </tr>';
+            total2 += total;
+
+        }
+        else {
+            console.log(r+"2");
+
+            document.getElementById("other").innerHTML += '<tr>\n' +
+                '                            <td>' + r.description + '</td>\n' +
+                '                            <td class="even" id="wagesSalaries">' + r.Amount + '</td>\n' +
+                '                        </tr>';
+        }
+    });
+}
+

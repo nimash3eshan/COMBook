@@ -22,7 +22,9 @@ colRecords.get().then((querySnapshot) => {
             Date: doc.data().dateAndTime ,
             description: doc.data().title ,
             Type: doc.data().assetType ,
-            Exp_Type: (doc.data().exp_type == "")? "-":doc.data().exp_type ,
+            Exp_Type: (doc.data().exp_type === "")? "-":doc.data().exp_type ,
+            Ass_Type: (doc.data().ass_type === "")? "-":doc.data().ass_type ,
+            Liab_Type: (doc.data().liab_type === "")? "-":doc.data().liab_type ,
             Amount: doc.data().amount
         };
         records.push(obj);
@@ -34,12 +36,24 @@ colRecords.get().then((querySnapshot) => {
 
 function func() {
     records.forEach((record) => {
-        console.log(record);
+        let variable ;
+        console.log(record.Exp_Type);
+        if( record.Exp_Type !=="-")
+            variable = record.Exp_Type;
+        else if(record.Ass_Type!=="-")
+            variable = record.Ass_Type;
+        else if(record.Liab_Type!=="-")
+            variable = record.Liab_Type;
+        else
+            variable = "-";
+        console.log(variable);
+
+
         document.getElementById("tbody").innerHTML += '<td>' + record.ID + '</td>' +
             '<td>' + record.Date.slice(0,10) + '</td>' +
             '<td>' + record.description + '</td>' +
-            '<td><span class="status '+record.Type+'x">' + record.Type + '</span></td>' +
-            '<td>' + record.Exp_Type + '</td>' +
-            '<td>' + record.Amount + '</td>'
+            '<td><span class="status '+ record.Type +'x">' + record.Type + '</span></td>' +
+            '<td>' + variable + '</td>' +
+            '<td>' + record.Amount + '</td>';
     });
 }

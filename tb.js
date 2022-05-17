@@ -1,17 +1,17 @@
 // Your web app's Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyCXzTLjIinpg0n-eVpjJzYG2s66Gkv1jIY",
-    authDomain: "combook-676c6.firebaseapp.com",
-    projectId: "combook-676c6",
-    storageBucket: "combook-676c6.appspot.com",
-    messagingSenderId: "346024508214",
-    appId: "1:346024508214:web:10360bd811f89eaa741197"
-};
+// const firebaseConfig = {
+//     apiKey: "AIzaSyCXzTLjIinpg0n-eVpjJzYG2s66Gkv1jIY",
+//     authDomain: "combook-676c6.firebaseapp.com",
+//     projectId: "combook-676c6",
+//     storageBucket: "combook-676c6.appspot.com",
+//     messagingSenderId: "346024508214",
+//     appId: "1:346024508214:web:10360bd811f89eaa741197"
+// };
 
 // Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const db = app.firestore();
-let collection = db.collection("records");
+// const app = firebase.initializeApp(firebaseConfig);
+// const db = app.firestore();
+// let collection = db.collection("records");
 
 let totDebit = 0;
 let totCredit = 0;

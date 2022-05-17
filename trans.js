@@ -12,7 +12,6 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const db = app.firestore();
 let colRecords = db.collection("records");
-let colAdjustments = db.collection("adjustments");
 let reload = false;
 
 
@@ -183,4 +182,26 @@ function  deleteRecord(id){
         console.error("Error removing document: ", error);
         alert(error);
     });
+}
+
+document.getElementById('accrual_btn').addEventListener(type='click',()=>{
+    doAdjustment(
+        document.getElementById('ID_accrual').value,
+        document.getElementById('textarea_accrual').value,
+        document.getElementById('Amount_accrual').value,
+        document.getElementById('accrual'),
+        "accrual");
+
+})
+
+function doAdjustment(id, title, amount, form, type){
+    db.collection(type).doc(id).set({
+        id: id,
+        title: title,
+        amount: amount
+    }).then(() =>{
+        form.reset();
+    }).catch((error) =>{
+        console.log(error);
+    })
 }

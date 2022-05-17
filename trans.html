@@ -135,7 +135,7 @@
                         <!--rose                    Local Storage area-->
                         <!-- here update the journals -->
                         <form id="updateForm">
-                            <label for="date">Date & Time</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label >Date & Time</label>&nbsp;&nbsp;&nbsp;&nbsp;
                             <input type="datetime-local" id="pdate" style="width: 2	200px; padding: 5px;"><br><br>
 
                             <label for="tbtype" >Select the type</label>&nbsp;&nbsp;
@@ -170,7 +170,7 @@
                             <label for="pqty" >Total Amount (Rs)</label>&nbsp;
                             <input type="number" id="pqty" placeholder="Amount" style="width: 243px; padding: 5px;"><br><br><br>
 
-                            <button type="button" id="submit" target="_blank">ADD to Trial Balance</button><br><br>
+                            <button type="button" id="submit" >ADD to Trial Balance</button><br><br>
                         </form>
                             <button class="red adj">Show Adjustments</button>
                         <br><br>
@@ -202,16 +202,16 @@
                         <div class="accu-area adjhide">
                             <hr><br>
                             <h1>Accruals</h1><br>
-                            <form action="">
-                                <label for="date">Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
-                                <input type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
-                                <label for="desc">Accounting Title</label><br>
-                                <textarea name="" id="" placeholder="Please write Account description" style="width: 398px; height: 38px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
-                                <label for="tot">How much is your arrears amount for this period?</label>&nbsp;
-                                <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
+                            <form id="accrual" action="">
+                                <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
+                                <input id = "ID_accrual" type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
+                                <label >Accounting Title</label><br>
+                                <textarea id = "textarea_accrual" name=""  placeholder="Please write Account description" style="width: 398px; height: 38px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+                                <label >How much is your arrears amount for this period?</label>&nbsp;
+                                <input id = "Amount_accrual" type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
 
                                 <br><br><p><i>Eg: electricity expense wala 16000k gewanna one eka 12000k gewala thamai mu trial balance dala thiyenne(12000).</i><br>  Row Id eken electricity expence walata adala ID eka gannawa. accounting title eken ELECTRICITY kiyana eka gannawa. ammount eken higa mudala gannwa(4000)- eka update wenawa financial positions wala CURRENT LIABILITIES wala ACCRUED EXPENSE kiyana thana. mulu mudala (16000) update wenawa P&L eke expenses wala (expense type ekata adala thana).</p><br><br><br>
-                                <button>ADD to Statements</button><br><br>
+                                <button type="button" id="accrual_btn">ADD to Statements</button><br><br>
                                 
                             </form>
                         </div>
@@ -221,12 +221,12 @@
                             <hr><br>
                             <h1>Prepayments</h1><br>
                             <form action="">
-                                <label for="date">Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
-                                <input type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
-                                <label for="desc">Accounting Title</label><br>
-                                <textarea name="" id="" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
-                                <label for="tot">How much have you overpaid?</label>&nbsp;
-                                <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
+                                <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
+                                <input id = "ID_prepayment" type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
+                                <label >Accounting Title</label><br>
+                                <textarea id = "textarea_prepayment" name=""  placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+                                <label >How much have you overpaid?</label>&nbsp;
+                                <input id = "Amount_prepayment" type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
 
                                 <br><br><p><i>Eg: Rent expense wala 12000k gewanna one eka 16000k wadiyen gewala thamai mu trial balance dala (16000) thiyenne.</i><br> Row Id eken rent expence walata adala ID eka gannawa. accounting title eken RENT kiyana eka gannawa. amount eken wadiyen gewapu mudala gannwa(4000) -> e gana adukarala (16000-4000 = 12000) eka update karanawa P&L eke Rent expense wala. wadiyen gwuwa 4000 financial position eke CURRENT ASSEST wala prepaid rent wala update wenawa</p><br><br><br>
 
@@ -239,8 +239,9 @@
                             <hr><br>
                             <h1>Income Receivables</h1><br>
                             <form action="">
-                                <label for="date">Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
+                                <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
                                 <input type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
+
 
                                 <label for="desc">Accounting Title</label><br>
                                 <textarea name="" id="" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
@@ -250,6 +251,7 @@
                                 <br><br><p><i>Eg: samangen apita rent income eka enawa 10000, but thawa 5000k ugen labenna one</i><br> Row Id eken rent income walata adala ID eka gannawa. accounting title eken RENT INCOME kiyana eka gannawa. mulu amount eka 15000 danawa P&L eke income ekata. labenna one 5000 financial position eke CURRENT ASSET eke rent income receivable walata danawa</p><br><br><br>
 
                                 <button>ADD to Statements</button><br><br>
+
                             </form>
                         </div>
 
@@ -258,8 +260,9 @@
                             <hr><br>
                             <h1>Income Received In Advance</h1><br>
                             <form action="">
-                                <label for="date">Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
+                                <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
                                 <input type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
+
                                 <label for="desc">Accounting Title</label><br>
                                 <textarea name="" id="" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
                                 <label for="tot">How much income did you receive in advance?</label>&nbsp;
@@ -268,6 +271,7 @@
                                 <br><br><p><i>Eg: nimalgen apita rent income eka enawa 25000, but enna one gana 20000. u wadiyen 5000k gewala</i><br> Row Id eken rent income walata adala ID eka gannawa. accounting title eken RENT INCOME kiyana eka gannawa. P&L eke enna one 20000 INCOME ekta danawa. financial position eke ara wadiyen apita deepu 5000 CURRENT LIABILITY wala danawa</p><br><br><br>
 
                                 <button>ADD to Statements</button><br><br>
+
                             </form>
                         </div>
 
@@ -276,14 +280,16 @@
                             <hr><br>
                             <h1>Bad debts</h1><br>
                             <form action="">
-                                <label for="date">Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
+                                <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
                                 <input type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
+
                                 <label for="desc">Accounting Title</label><br>
                                 <textarea name="" id="" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
                                 <label for="tot">What is the amount of Bad Debt?</label>&nbsp;
                                 <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
                                 <br><br><p><i>kasunita denawa 55000 loan ekak. eunata eyata gewanna puluwan kiyala hithenne 50000. ithiri 5000 bad debts walata danawa </i><br> Row Id eken loan ekata adala ID eka gannawa. accounting title eken Bad Debt kiyana eka gannawa. amount eken ara 5000 gannawa -> e 5000 update karanawa P&L eke bad dept wala ara expense type ekata adala thana. Financial position eke current assest kiyana eken adu karanawa e 5000</p><br><br><br>
                                 <button>ADD to Statements</button><br><br>
+
                             </form>
                         </div>
 
@@ -292,16 +298,16 @@
                             <hr><br>
                             <h1>Provision For Doubtful Debts</h1><br>
                             <form action="">
-                                <label for="date">Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
+                                <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
                                 <input type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
-                                <label for="cr">Credit or Debit?</label>&nbsp;&nbsp;
+                                <label >Credit or Debit?</label>&nbsp;&nbsp;
                                 <select name="cr">
                                     <option value="credit">Credit</option>
                                     <option value="debit">Debit</option>
                                 </select><br><br>
-                                <label for="desc">Accounting Title</label><br>
-                                <textarea name="" id="" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
-                                <label for="tot">Total Amount (Rs)</label>&nbsp;
+                                <label >Accounting Title</label><br>
+                                <textarea name=""  placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+                                <label >Total Amount (Rs)</label>&nbsp;
                                 <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;"><br><br><br>
                                 <button>ADD to Financial Statements</button><br><br>
                             </form>
@@ -312,16 +318,16 @@
                             <hr><br>
                             <h1>Depreciation</h1><br>
                             <form action="">
-                                <label for="date">Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
+                                <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
                                 <input type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
-                                <label for="cr">Credit or Debit?</label>&nbsp;&nbsp;
+                                <label >Credit or Debit?</label>&nbsp;&nbsp;
                                 <select name="cr">
                                     <option value="credit">Credit</option>
                                     <option value="debit">Debit</option>
                                 </select><br><br>
-                                <label for="desc">Accounting Title</label><br>
-                                <textarea name="" id="" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
-                                <label for="tot">Total Amount (Rs)</label>&nbsp;
+                                <label >Accounting Title</label><br>
+                                <textarea name=""  placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+                                <label >Total Amount (Rs)</label>&nbsp;
                                 <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;"><br><br><br>
                                 <button>ADD to Financial Statements</button><br><br>
                             </form>

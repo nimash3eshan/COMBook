@@ -140,7 +140,8 @@
 
                             <label for="tbtype" >Select the type</label>&nbsp;&nbsp;
                             <select name="tbtype" id="ptbtype">
-                                <option value="asset">Assest</option>
+                                <option value="">Select The Type</option>
+                                <option value="asset">Asset</option>
                                 <option value="expense">Expense</option>
                                 <option value="capital">Capital</option>
                                 <option value="income">Income</option>
@@ -156,6 +157,24 @@
                                     <option value="f-ex">Financial Expenses</option>
                                     <option value="cos-ex">Cost Of sales</option>
                                     <option value="o-ex">Other Expenses</option>
+                                </select><br><br>
+                            </div>
+
+                            <div class="hide-for-ass">
+                                <label for="asset" class="" >Asset Type</label>&nbsp;&nbsp;
+                                <select name="at" class="ass-type" id="asset">
+                                    <option value="" selected="selected">Select Option</option>
+                                    <option value="c-as">Current Asset</option>
+                                    <option value="nc-as">Non Current Asset</option>
+                                </select><br><br>
+                            </div>
+
+                            <div class="hide-for-liab">
+                                <label for="liab" class="" >Liability Type</label>&nbsp;&nbsp;
+                                <select name="lt" class="liab-type" id="liab">
+                                    <option value="" selected="selected">Select Option</option>
+                                    <option value="c-lia">Current Liability</option>
+                                    <option value="nc-lia">Non Current Liability</option>
                                 </select><br><br>
                             </div>
 

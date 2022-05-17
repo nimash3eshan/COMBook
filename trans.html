@@ -188,7 +188,7 @@
                         <label for="tbtype">Select the type</label>&nbsp;&nbsp;
                         <select id="tbtype" class="tbtype">
                             <option>Please Select The Option</option>
-                            <option value="accu">Accurals</option>
+                            <option value="accu">Accruals</option>
                             <option value="prepay">Prepayments</option>
                             <option value="inrec">Income Receivables</option>
                             <option value="inad">Income Received In Advance</option>
@@ -198,23 +198,21 @@
                         </select><br><br>
 
                         <!--blue                                Tooggle option area-->
-                        <!--green     accurals-->
+                        <!--green     accrual-->
                         <div class="accu-area adjhide">
                             <hr><br>
                             <h1>Accruals</h1><br>
                             <form action="">
                                 <label for="date">Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
                                 <input type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
-                                <label for="cr">Credit or Debit?</label>&nbsp;&nbsp;
-                                <select name="cr">
-                                    <option value="credit">Credit</option>
-                                    <option value="debit">Debit</option>
-                                </select><br><br>
                                 <label for="desc">Accounting Title</label><br>
-                                <textarea name="" id="" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
-                                <label for="tot">Total Amount (Rs)</label>&nbsp;
-                                <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;"><br><br><br>
+                                <textarea name="" id="" placeholder="Please write Account description" style="width: 398px; height: 38px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+                                <label for="tot">How much is your arrears amount for this period?</label>&nbsp;
+                                <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
+
+                                <br><br><p><i>Eg: electricity expense wala 16000k gewanna one eka 12000k gewala thamai mu trial balance dala thiyenne(12000).</i><br>  Row Id eken electricity expence walata adala ID eka gannawa. accounting title eken ELECTRICITY kiyana eka gannawa. ammount eken higa mudala gannwa(4000)- eka update wenawa financial positions wala CURRENT LIABILITIES wala ACCRUED EXPENSE kiyana thana. mulu mudala (16000) update wenawa P&L eke expenses wala (expense type ekata adala thana).</p><br><br><br>
                                 <button>ADD to Financial Statements</button><br><br>
+                                
                             </form>
                         </div>
 

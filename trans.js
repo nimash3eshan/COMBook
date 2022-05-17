@@ -96,19 +96,21 @@ document.getElementById('submit').addEventListener("click", () =>{
         title: "",
         amount: "",
         exp_type: "",
+        ass_type: "",
         id: "",
     };
 
     record.dateAndTime = getElementById("pdate").value;
     record.assetType = getElementById("ptbtype").value;
     record.exp_type = getElementById("expense").value;
+    record.ass_type = getElementById("expense").value;
     record.creditDebit = getElementById("pcr").value;
     record.title = getElementById("pdesc").value;
     record.amount = getElementById("pqty").value;
     record.id = Date.now();
     console.log(record);
 
-    if((record.dateAndTime === "")|| (record.title === "") || (record.amount === "") ||((record.assetType === "expense")&&(record.exp_type === "")) ){
+    if((record.dateAndTime === "")|| (record.title === "") || (record.amount === "") ||((record.assetType === "expense")&&(record.exp_type === ""))||((record.assetType === "expense")&&(record.exp_type === "")) ){
         alert("All fields must filled!");
         return;
     }

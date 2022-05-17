@@ -31,6 +31,7 @@ colRecords.get().then((querySnapshot) => {
         console.log(records);
     });
     func();
+    dashboard_update();
 })
 
 
@@ -56,4 +57,18 @@ function func() {
             '<td>' + variable + '</td>' +
             '<td>' + record.Amount + '</td>';
     });
+}
+
+function dashboard_update() {
+    console.log("heredjhbjdfhbj;hdghkl")
+    db.collection("homepage").doc("dashboard").get().then((r)=>{
+        if (r.exists){
+            console.log(r)
+
+            document.getElementById('netprofit').innerHTML = 'Rs.'+r.data().Net_Profit;
+            document.getElementById('grossprofit').innerHTML = 'Rs.'+r.data().Gross_Profit;
+        }
+    }).catch((e)=>{
+        console.log(e);
+    })
 }

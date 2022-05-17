@@ -1,5 +1,7 @@
 const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
 
+// color();
+
 allSideMenu.forEach(item=> {
 	const li = item.parentElement;
 
@@ -11,9 +13,6 @@ allSideMenu.forEach(item=> {
 	})
 });
 
-
-
-
 // TOGGLE SIDEBAR
 const menuBar = document.querySelector('#content nav .bx.bx-menu');
 const sidebar = document.getElementById('sidebar');
@@ -21,12 +20,6 @@ const sidebar = document.getElementById('sidebar');
 menuBar.addEventListener('click', function () {
 	sidebar.classList.toggle('hide');
 })
-
-
-
-
-
-
 
 const searchButton = document.querySelector('#content nav form .form-input button');
 const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
@@ -43,9 +36,6 @@ searchButton.addEventListener('click', function (e) {
 		}
 	}
 })
-
-
-
 
 
 if(window.innerWidth < 768) {
@@ -70,7 +60,22 @@ const switchMode = document.getElementById('switch-mode');
 switchMode.addEventListener('change', function () {
 	if(this.checked) {
 		document.body.classList.add('dark');
+		document.getElementById("switch-mode").checked = true;
+		document.querySelector(".switch-mode").classList.add("test");
+		window.localStorage.setItem("state","dark")
 	} else {
 		document.body.classList.remove('dark');
+		document.getElementById("switch-mode").checked = false;
+		document.querySelector(".switch-mode").classList.remove("test");
+		window.localStorage.removeItem("state");
 	}
 })
+
+//
+// function color(){
+// 	let state = window.localStorage.getItem("state");
+// 	const ele = document.getElementById("switch-label")
+// 	if(state==null) return
+// 	console.log(state, ele);
+// 	(state === "dark")? ele.classList.add("test"):ele.classList.remove("test");
+// }

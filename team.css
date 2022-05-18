@@ -200,4 +200,7 @@ font-weight: 300;
     width: 100%;
     margin: 0 0 2rem 0;
 }
+h1.header{
+        font-size: 2rem;
+}
 }

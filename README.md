@@ -25,7 +25,7 @@ const COMBOok = {
 }
 ```
 
-<img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="60"> <em><b>End of the chapter.</b> If you have any problem <b>Plase make a new issue</b> :)</em>
+<img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="60"> <em><b>End of the chapter.</b> If you have any problem <b>Please make a new issue</b> :)</em>
 
 ---
 

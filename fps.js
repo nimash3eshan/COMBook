@@ -192,6 +192,18 @@ function set_current_asset(){
             '</tr>'
         total2+=prep;
     }
+    if (receivables.length !== 0) {
+        let prep = 0;
+        receivables.forEach((rec) => {
+            prep += rec.Amount;
+            console.log(rec);
+        })
+        tbody.insertRow().innerHTML += '<tr>' +
+            '<td>Income Receivable</td>' +
+            '<td class="even" id="Cash">' + prep + '</td>' +
+            '</tr>'
+        total2+=prep;
+    }
 }
 
 function tot_c_asst_set(){
@@ -225,6 +237,18 @@ function set_current_liabilities(){
             '<td class="even" id="Cash">'+rec.Amount+'</td>'+
             '</tr>'
     })
+    if (accruals.length !== 0) {
+        let accr = 0;
+        accruals.forEach((rec) => {
+            accr += rec.Amount;
+            console.log(rec);
+        })
+        tbody.insertRow().innerHTML += '<tr>' +
+            '<td>Accrued Expenses</td>' +
+            '<td class="even" id="Cash">' + accr + '</td>' +
+            '</tr>'
+        total2+=accr;
+    }
 }
 
 function tot_c_liab_set(){
@@ -241,18 +265,6 @@ function set_non_current_liabilities(){
             '<td class="even" id="Cash">'+rec.Amount+'</td>'+
             '</tr>'
     })
-    if (accruals.length !== 0) {
-        let accr = 0;
-        accruals.forEach((rec) => {
-            accr += rec.Amount;
-            console.log(rec);
-        })
-        tbody.insertRow().innerHTML += '<tr>' +
-            '<td>Accrued Expenses</td>' +
-            '<td class="even" id="Cash">' + accr + '</td>' +
-            '</tr>'
-        total2+=accr;
-    }
 }
 
 function tot_nc_liab_set(){

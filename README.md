@@ -6,6 +6,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/nimash3eshan/COMBook?style=plastic)](https://github.com/nimash3eshan/COMBook/stargazers)
 [![](https://img.shields.io/badge/COMBook-Live%20Preview-brightgreen)](https://combook.tk/)
 [![](https://img.shields.io/badge/ItFac-University%20of%20Moratuwa-blue)](#)
+[![](https://img.shields.io/badge/Preview-Project%20Report-ff69b4)](https://www.canva.com/design/DAFASA8Xn4M/Ru7R1b9L32hChxz4ROU8IA/view)
  
 ### <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50"> A little more about the Project... 
 ```javascript

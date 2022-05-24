@@ -306,6 +306,13 @@ function tot_oe_set(){
 function totals_set(){
     TotalAssets.innerHTML = (parseInt(TotalCurrentAssets.innerHTML)+parseInt(TotalNonCurrentAssets.innerHTML)).toString();
     TotalLiabilitiesAndEquity.innerHTML = (parseInt(TotalLiabilities.innerHTML)+parseInt(TotalEquity.innerHTML)).toString();
+    db.collection("homepage").doc("dashboard").update({
+        Total_Assets: document.getElementById("TotalAssets").textContent,
+        Total_Liabilities: document.getElementById("TotalLiabilities").textContent,
+        Total_Equity: document.getElementById("TotalEquity").textContent
+    }).catch((e) => {
+        console.log(e);
+    })
 }
 
 

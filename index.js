@@ -67,6 +67,9 @@ function dashboard_update() {
 
             document.getElementById('netprofit').innerHTML = 'Rs.'+r.data().Net_Profit;
             document.getElementById('grossprofit').innerHTML = 'Rs.'+r.data().Gross_Profit;
+            document.getElementById('totassets').innerHTML = 'Rs.'+r.data().Total_Assets;
+            document.getElementById('titliabs').innerHTML = 'Rs.'+r.data().Total_Liabilities;
+            document.getElementById('totequi').innerHTML = 'Rs.'+r.data().Total_Equity;
         }
     }).catch((e)=>{
         console.log(e);

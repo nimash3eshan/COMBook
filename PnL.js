@@ -474,7 +474,7 @@ function TotalIncome() {
 function set_profits() {
     document.getElementById('TotalGrossProfit').innerHTML = (parseInt(document.getElementById('SalesTotal').textContent) - parseInt(document.getElementById('TotalCostOfSales').textContent)).toString();
     document.getElementById('netprofit').innerHTML = (parseInt(document.getElementById('TotalGrossProfit').textContent) + parseInt(document.getElementById('TotalIncome').textContent) - parseInt(document.getElementById('TotalExpenses').textContent)).toString();
-    db.collection("homepage").doc("dashboard").set({
+    db.collection("homepage").doc("dashboard").update({
         Net_Profit: document.getElementById('netprofit').textContent,
         Gross_Profit: document.getElementById('TotalGrossProfit').textContent
     }).catch((e) => {

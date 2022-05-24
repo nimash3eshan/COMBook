@@ -450,6 +450,15 @@ function set_income() {
                 f.Amount += r.Amount;
             })
         }
+        let rec2 = advance.filter(e => {
+            return ((e.ID === f.ID))
+        })
+        console.log();
+        if (rec2.length !== 0) {
+            rec2.forEach((r) => {
+                f.Amount -= r.Amount;
+            })
+        }
         total2 += f.Amount;
         tbody.insertRow().innerHTML += '<tr>' +
             '<td>' + f.description + '</td>' +

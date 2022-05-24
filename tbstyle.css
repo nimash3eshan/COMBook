@@ -40,8 +40,11 @@
     
 }*/
 
-
-
+th{
+    width: 250px;
+    padding-top: 15px;
+    text-align: center;
+}
 
 td{
     width: 250px;

@@ -441,6 +441,15 @@ function set_income() {
         return ((w.Type === 'income'))
     })
     filtered.forEach((f) => {
+        let rec = receivables.filter(e => {
+            return ((e.ID === f.ID))
+        })
+        console.log();
+        if (rec.length !== 0) {
+            rec.forEach((r) => {
+                f.Amount += r.Amount;
+            })
+        }
         total2 += f.Amount;
         tbody.insertRow().innerHTML += '<tr>' +
             '<td>' + f.description + '</td>' +

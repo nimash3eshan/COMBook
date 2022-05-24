@@ -229,6 +229,18 @@ function set_non_current_liabilities(){
             '<td class="even" id="Cash">'+rec.Amount+'</td>'+
             '</tr>'
     })
+    if (accruals.length !== 0) {
+        let accr = 0;
+        accruals.forEach((rec) => {
+            accr += rec.Amount;
+            console.log(rec);
+        })
+        tbody.insertRow().innerHTML += '<tr>' +
+            '<td>Accrued Expenses</td>' +
+            '<td class="even" id="Cash">' + accr + '</td>' +
+            '</tr>'
+        total2+=accr;
+    }
 }
 
 function tot_nc_liab_set(){

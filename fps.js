@@ -229,7 +229,7 @@ function tot_nc_asst_set(){
 
 function set_current_liabilities(){
     const tbody = document.getElementById('current liabilities');
-    const filtered = records.filter(w => {return ((w.Type === 'liab')&(w.Liab_Type === 'c-lia'))});
+    const filtered = records.filter(w => {return ((w.Type === 'liability')&(w.Liab_Type === 'c-lia'))});
     filtered.forEach((rec)=>{
         total2 += rec.Amount;
         tbody.insertRow().innerHTML += '<tr>'+
@@ -269,7 +269,7 @@ function tot_c_liab_set(){
 
 function set_non_current_liabilities(){
     const tbody = document.getElementById('non current liabilities');
-    const filtered = records.filter(w => {return ((w.Type === 'liab')&(w.Liab_Type === 'nc-lia'))});
+    const filtered = records.filter(w => {return ((w.Type === 'liability')&(w.Liab_Type === 'nc-lia'))});
     filtered.forEach((rec)=>{
         total2 += rec.Amount;
         tbody.insertRow().innerHTML += '<tr>'+

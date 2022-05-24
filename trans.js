@@ -96,7 +96,7 @@ $(document).ready(() => {
 
     $('select#ptbtype').change(function(){
         var selectedtype = $(this).children("option:selected").val();
-        if(selectedtype == 'liab'){
+        if(selectedtype == 'liability'){
             $('.hide-for-liab').slideDown();
         }else{
             $('.hide-for-liab').slideUp();

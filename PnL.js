@@ -57,11 +57,14 @@ let total2 = 0;
 colRecords.get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
         let obj = {
-            ID: doc.id,
-            Date: doc.data().dateAndTime,
-            description: doc.data().title,
-            Type: doc.data().assetType,
-            Exp_Type: (doc.data().exp_type == "") ? "-" : doc.data().exp_type,
+            ID : doc.id ,
+            Date: doc.data().dateAndTime ,
+            description: doc.data().title ,
+            Type: doc.data().assetType ,
+            CrDb: doc.data().creditDebit ,
+            Exp_Type: (doc.data().exp_type == "")? "-":doc.data().exp_type ,
+            Ass_Type: (doc.data().ass_type == "")? "-":doc.data().ass_type ,
+            Liab_Type: (doc.data().liab_type == "")? "-":doc.data().liab_type ,
             Amount: doc.data().amount
         };
         records.push(obj);
@@ -69,7 +72,6 @@ colRecords.get().then((querySnapshot) => {
     });
     getData().then(r => {
         administrative();
-        console.log(total2);
         distributing();
         financialExpenses();
         other();
@@ -79,15 +81,10 @@ colRecords.get().then((querySnapshot) => {
         ret_inw_set();
         sales_tot_set();
         total2 = 0;
-        opn_stk_set();
-        purch_set();
-        c_inw_set();
-        r_inw_set();
-        clo_inv_set();
+        set_cost_of_sales();
         cos_of_sales_set();
         total2 = 0;
-        discountrecived();
-        rentincome();
+        set_income();
         TotalIncome();
         set_profits();
 
@@ -163,12 +160,9 @@ async function getData() {
 function administrative() {
     let total = 0;
     let filtered = records.filter(e =>{return ((e.Type === "expense") && (e.Exp_Type ==="ad-ex"))})
-    console.log(filtered);
     filtered.forEach((r, idx, array) => {
         total += r.Amount;
-        console.log(r, idx,array);
         if(Object.is(array.length - 1, idx)) {
-            console.log(r);
             document.getElementById("administrative").innerHTML += '<tr>\n' +
                 '                            <td>' + r.description + '</td>\n' +
                 '                            <td class="even" id="wagesSalaries">' + r.Amount + '</td>\n' +
@@ -177,7 +171,6 @@ function administrative() {
             total2 += total;
         }
         else {
-            console.log(r+"2");
 
             document.getElementById("administrative").innerHTML += '<tr>\n' +
                 '                            <td>' + r.description + '</td>\n' +
@@ -189,12 +182,9 @@ function administrative() {
 function distributing() {
     let total = 0;
     let filtered = records.filter(e =>{return ((e.Type === "expense") && (e.Exp_Type ==="dns-ex"))})
-    console.log(filtered);
     filtered.forEach((r, idx, array) => {
         total += r.Amount;
-        console.log(r, idx,array);
         if(Object.is(array.length - 1, idx)) {
-            console.log(r);
             document.getElementById("distributing").innerHTML += '<tr>\n' +
                 '                            <td>' + r.description + '</td>\n' +
                 '                            <td class="even" id="wagesSalaries">' + r.Amount + '</td>\n' +
@@ -203,7 +193,6 @@ function distributing() {
             total2 += total;
         }
         else {
-            console.log(r+"2");
 
             document.getElementById("distributing").innerHTML += '<tr>\n' +
                 '                            <td>' + r.description + '</td>\n' +
@@ -215,12 +204,9 @@ function distributing() {
 function financialExpenses() {
     let total = 0;
     let filtered = records.filter(e =>{return ((e.Type === "expense") && (e.Exp_Type ==="f-ex"))})
-    console.log(filtered);
     filtered.forEach((r, idx, array) => {
         total += r.Amount;
-        console.log(r, idx,array);
         if(Object.is(array.length - 1, idx)) {
-            console.log(r);
             document.getElementById("financialExpenses").innerHTML += '<tr>\n' +
                 '                            <td>' + r.description + '</td>\n' +
                 '                            <td class="even" id="wagesSalaries">' + r.Amount + '</td>\n' +
@@ -230,7 +216,6 @@ function financialExpenses() {
 
         }
         else {
-            console.log(r+"2");
 
             document.getElementById("financialExpenses").innerHTML += '<tr>\n' +
                 '                            <td>' + r.description + '</td>\n' +
@@ -280,7 +265,6 @@ function ret_inw_set(){
         total+=f.Amount;
     })
     total2 -= total;
-    console.log(total2)
     document.getElementById('returnInwards').innerHTML = total;
 }
 
@@ -288,82 +272,102 @@ function sales_tot_set(){
     document.getElementById('SalesTotal').innerHTML = total2;
 }
 
-function opn_stk_set(){
-    let total = 0;
-    const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'opening stock'))})
-    filtered.forEach((f)=>{
-        total+=f.Amount;
-    })
-    total2+=total;
-    document.getElementById('OpenStock').innerHTML = total;
-}
+// function opn_stk_set(){
+//     let total = 0;
+//     const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'opening stock'))})
+//     filtered.forEach((f)=>{
+//         total+=f.Amount;
+//     })
+//     total2+=total;
+//     document.getElementById('OpenStock').innerHTML = total;
+// }
+//
+// function purch_set(){
+//     let total = 0;
+//     const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'purchase')||(w.description.toLowerCase() === 'purchases'))})
+//     filtered.forEach((f)=>{
+//         total+=f.Amount;
+//     })
+//     total2 += total;
+//     document.getElementById('Purchase').innerHTML = total;
+// }
+// function c_inw_set(){
+//     let total = 0;
+//     const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'carry inward')||(w.description.toLowerCase() === 'carry inwards'))})
+//     filtered.forEach((f)=>{
+//         total+=f.Amount;
+//     })
+//     total2 += total;
+//     console.log(total2)
+//     document.getElementById('CarryInwards').innerHTML = total;
+// }
+// function r_inw_set(){
+//     let total = 0;
+//     const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'return outward')||(w.description.toLowerCase() === 'return outwards')||(w.description.toLowerCase() === 'purchase return'))})
+//     filtered.forEach((f)=>{
+//         total+=f.Amount;
+//     })
+//     total2 += total;
+//     console.log(total2)
+//     document.getElementById('ReturnOutwards').innerHTML = total;
+// }
+// function clo_inv_set(){
+//     let total = 0;
+//     const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'closing inventory'))})
+//     filtered.forEach((f)=>{
+//         total+=f.Amount;
+//     })
+//     total2 -= total;
+//     console.log(total2)
+//     document.getElementById('CloseInventory').innerHTML = total;
+// }
 
-function purch_set(){
-    let total = 0;
-    const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'purchase')||(w.description.toLowerCase() === 'purchases'))})
+function set_cost_of_sales() {
+    const tbody = document.getElementById('costofsales');
+    const filtered = records.filter(w => {return ((w.Type === 'expense')&&(w.Exp_Type == 'cos-ex'))})
     filtered.forEach((f)=>{
-        total+=f.Amount;
+        total2+=f.Amount;
+        tbody.insertRow().innerHTML += '<tr>'+
+            '<td>'+f.description+'</td>'+
+            '<td class="even" id="Cash">'+f.Amount+'</td>'+
+            '</tr>'
     })
-    total2 += total;
-    console.log(total2)
-    document.getElementById('Purchase').innerHTML = total;
 }
-function c_inw_set(){
-    let total = 0;
-    const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'carry inward')||(w.description.toLowerCase() === 'carry inwards'))})
-    filtered.forEach((f)=>{
-        total+=f.Amount;
-    })
-    total2 += total;
-    console.log(total2)
-    document.getElementById('CarryInwards').innerHTML = total;
-}
-function r_inw_set(){
-    let total = 0;
-    const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'return outward')||(w.description.toLowerCase() === 'return outwards')||(w.description.toLowerCase() === 'purchase return'))})
-    filtered.forEach((f)=>{
-        total+=f.Amount;
-    })
-    total2 += total;
-    console.log(total2)
-    document.getElementById('ReturnOutwards').innerHTML = total;
-}
-function clo_inv_set(){
-    let total = 0;
-    const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'closing inventory'))})
-    filtered.forEach((f)=>{
-        total+=f.Amount;
-    })
-    total2 -= total;
-    console.log(total2)
-    document.getElementById('CloseInventory').innerHTML = total;
-}
-
 function cos_of_sales_set(){
     document.getElementById('TotalCostOfSales').innerHTML = total2;
 }
 
-function discountrecived(){
-    let total = 0;
-    const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'discount received'))})
-    filtered.forEach((f)=>{
-        total+=f.Amount;
-    })
-    total2 += total;
-    console.log(total2)
-    document.getElementById('discountrecived').innerHTML = total;
-}
-function rentincome(){
-    let total = 0;
-    const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'rent income'))})
-    filtered.forEach((f)=>{
-        total+=f.Amount;
-    })
-    total2 += total;
-    console.log(total2)
-    document.getElementById('rentincome').innerHTML = total;
-}
+// function discountrecived(){
+//     let total = 0;
+//     const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'discount received'))})
+//     filtered.forEach((f)=>{
+//         total+=f.Amount;
+//     })
+//     total2 += total;
+//     document.getElementById('discountrecived').innerHTML = total;
+// }
+// function rentincome(){
+//     let total = 0;
+//     const filtered = records.filter(w => {return ((w.description.toLowerCase() === 'rent income'))})
+//     filtered.forEach((f)=>{
+//         total+=f.Amount;
+//     })
+//     total2 += total;
+//     console.log(total2)
+//     document.getElementById('rentincome').innerHTML = total;
+// }
 
+function set_income(){
+    const tbody = document.getElementById('income');
+    const filtered = records.filter(w => {return ((w.Type === 'income'))})
+    filtered.forEach((f)=>{
+        total2+=f.Amount;
+        tbody.insertRow().innerHTML += '<tr>'+
+            '<td>'+f.description+'</td>'+
+            '<td class="even" id="Cash">'+f.Amount+'</td>'+
+            '</tr>'
+    })
+}
 function TotalIncome(){
     document.getElementById('TotalIncome').innerHTML = total2;
 }

@@ -249,6 +249,18 @@ function set_current_liabilities(){
             '</tr>'
         total2+=accr;
     }
+    if (accruals.length !== 0) {
+        let accr = 0;
+        advance.forEach((rec) => {
+            accr += rec.Amount;
+            console.log(rec);
+        })
+        tbody.insertRow().innerHTML += '<tr>' +
+            '<td>Income received in Advance</td><td' +
+            ' class="even" id="Cash">' + accr + '</td>' +
+            '</tr>'
+        total2+=accr;
+    }
 }
 
 function tot_c_liab_set(){

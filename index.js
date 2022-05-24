@@ -60,7 +60,7 @@ function func() {
 }
 
 function dashboard_update() {
-    console.log("heredjhbjdfhbj;hdghkl")
+    console.log("dashboard updated");
     db.collection("homepage").doc("dashboard").get().then((r)=>{
         if (r.exists){
             console.log(r)

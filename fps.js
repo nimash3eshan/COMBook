@@ -180,6 +180,18 @@ function set_current_asset(){
             '<td class="even" id="Cash">'+rec.Amount+'</td>'+
         '</tr>'
     })
+    if (prepayments.length !== 0) {
+        let prep = 0;
+        prepayments.forEach((rec) => {
+            prep += rec.Amount;
+            console.log(rec);
+        })
+        tbody.insertRow().innerHTML += '<tr>' +
+            '<td>Prepayments</td>' +
+            '<td class="even" id="Cash">' + prep + '</td>' +
+            '</tr>'
+        total2+=prep;
+    }
 }
 
 function tot_c_asst_set(){

@@ -168,7 +168,15 @@ function administrative() {
         })
         if (rec.length !== 0) {
             rec.forEach((f) => {
-                r.Amount += r.Amount + f.Amount;
+                r.Amount += f.Amount;
+            })
+        }
+        let rec2 = prepayments.filter(e => {
+            return ((e.ID === r.ID))
+        })
+        if (rec2.length !== 0) {
+            rec2.forEach((f) => {
+                r.Amount -= f.Amount;
             })
         }
         total += r.Amount;
@@ -203,6 +211,14 @@ function distributing() {
                 r.Amount += f.Amount;
             })
         }
+        let rec2 = prepayments.filter(e => {
+            return ((e.ID === r.ID))
+        })
+        if (rec2.length !== 0) {
+            rec2.forEach((f) => {
+                r.Amount -= f.Amount;
+            })
+        }
         total += r.Amount;
         if (Object.is(array.length - 1, idx)) {
             document.getElementById("distributing").innerHTML += '<tr>\n' +
@@ -233,6 +249,14 @@ function financialExpenses() {
         if (rec.length !== 0) {
             rec.forEach((f) => {
                 r.Amount += f.Amount;
+            })
+        }
+        let rec2 = prepayments.filter(e => {
+            return ((e.ID === r.ID))
+        })
+        if (rec2.length !== 0) {
+            rec2.forEach((f) => {
+                r.Amount -= f.Amount;
             })
         }
         total += r.Amount;
@@ -266,6 +290,14 @@ function other() {
         if (rec.length !== 0) {
             rec.forEach((f) => {
                 r.Amount += f.Amount;
+            })
+        }
+        let rec2 = prepayments.filter(e => {
+            return ((e.ID === r.ID))
+        })
+        if (rec2.length !== 0) {
+            rec2.forEach((f) => {
+                r.Amount -= f.Amount;
             })
         }
         total += r.Amount;

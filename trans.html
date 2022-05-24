@@ -222,18 +222,18 @@
                         <div class="accu-area adjhide">
                             <hr><br>
                             <h1>Accruals</h1><br>
-                            <form action="">
-                                <label for="date">Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
-                                <input type="text" placeholder="ID" style="width: 120px; padding: 5px;"><br><br>
-                                <label for="desc">Accounting Title</label><br>
-                                <textarea name="" id="" placeholder="Please write Account description" style="width: 398px; height: 38px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
-                                <label for="tot">How much is your arrears amount for this period?</label>&nbsp;
-                                <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
+                            <form action="" id="accrual">
+                                <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
+                                <input id="ID_accrual" type="text" placeholder="ID" style="width: 120px; padding: 5px;"><br><br>
+                                <label >Accounting Title</label><br>
+                                <textarea name="" id="textarea_accrual" placeholder="Please write Account description" style="width: 398px; height: 38px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+                                <label >How much is your arrears amount for this period?</label>&nbsp;
+                                <input id="Amount_accrual" type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
 
                                 <!-- <br><br><p><i>Eg: electricity expense wala 16000k gewanna one eka 12000k gewala thamai mu trial balance dala thiyenne(12000).</i><br>  Row Id eken electricity expence walata adala ID eka gannawa. accounting title eken ELECTRICITY kiyana eka gannawa. ammount eken higa mudala gannwa(4000)- eka update wenawa financial positions wala CURRENT LIABILITIES wala ACCRUED EXPENSE kiyana thana. mulu mudala (16000) update wenawa P&L eke expenses wala (expense type ekata adala thana).</p> -->
                                 <br><br><br>
                                 <button type="button" id="accrual_btn">ADD to Statements</button><br><br>
-                                
+
                             </form>
                         </div>
 
@@ -241,18 +241,16 @@
                         <div class="prepay-area adjhide">
                             <hr><br>
                             <h1>Prepayments</h1><br>
-                            <form action="" id="payments">
+                            <form action="" id="prepayments">
                                 <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
-                                <input id = "ID_prepayment" type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
+                                <input id="ID_prepayment" type="text" placeholder="ID" style="width: 120px; padding: 5px;"><br><br>
                                 <label >Accounting Title</label><br>
-                                <textarea id = "textarea_prepayment" name=""  placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+                                <textarea name="" id="textarea_prepayment" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
                                 <label >How much have you overpaid?</label>&nbsp;
-                                <input id = "Amount_prepayment" type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
-
-                                <!-- <br><br><p><i>Eg: Rent expense wala 12000k gewanna one eka 16000k wadiyen gewala thamai mu trial balance dala (16000) thiyenne.</i><br> Row Id eken rent expence walata adala ID eka gannawa. accounting title eken RENT kiyana eka gannawa. amount eken wadiyen gewapu mudala gannwa(4000) -> e gana adukarala (16000-4000 = 12000) eka update karanawa P&L eke Rent expense wala. wadiyen gwuwa 4000 financial position eke CURRENT ASSEST wala prepaid rent wala update wenawa</p> -->
+                                <input id="Amount_prepayment" type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
                                 <br><br><br>
 
-                                <button type="button" id="prepayments_btn">>ADD to Statements</button><br><br>
+                                <button type="button" id="prepayments_btn">ADD to Statements</button><br><br>
                             </form>
                         </div>
 
@@ -260,9 +258,6 @@
                         <div class="inrec-area adjhide">
                             <hr><br>
                             <h1>Income Receivables</h1><br>
-                            <form action="">
-                                <label for="date">Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
-                                <input type="text" placeholder="ID" style="width: 120px; padding: 5px;"><br><br>
                             <form action="" id="receivables">
                                 <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
                                 <input id = "ID_receivables" type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>

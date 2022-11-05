@@ -46,11 +46,7 @@ $(document).ready(() => {
             $('.adjhide').hide();
             $('.inrec-area').slideDown();
         }
-        else if(selectedAdj == 'accu'){
-            $('.adjhide').hide();
-            $('.accu-area').slideDown();
-        }
-        else if(selectedAdj == 'inad'){
+         else if(selectedAdj == 'inad'){
             $('.adjhide').hide();
             $('.inad-area').slideDown();
         }
